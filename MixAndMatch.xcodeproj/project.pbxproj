@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D25515014F830B100BC7C82 /* SetupLunchView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D25514F14F830B100BC7C82 /* SetupLunchView_iPhone.xib */; };
+		7D25517714F84FAE00BC7C82 /* SetupLunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D25517614F84FAD00BC7C82 /* SetupLunchViewController.m */; };
 		7D74594214F68D8A00AFB621 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74594114F68D8A00AFB621 /* UIKit.framework */; };
 		7D74594414F68D8A00AFB621 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74594314F68D8A00AFB621 /* Foundation.framework */; };
 		7D74594614F68D8A00AFB621 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74594514F68D8A00AFB621 /* CoreGraphics.framework */; };
@@ -18,6 +20,38 @@
 		7D74595C14F68D8A00AFB621 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74594314F68D8A00AFB621 /* Foundation.framework */; };
 		7D74596414F68D8A00AFB621 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D74596214F68D8A00AFB621 /* InfoPlist.strings */; };
 		7D74596714F68D8A00AFB621 /* MixAndMatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D74596614F68D8A00AFB621 /* MixAndMatchTests.m */; };
+		7D7D8A5114FC2D76003A3842 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7D8A5014FC2D76003A3842 /* DatePickerViewController.m */; };
+		7D7D8A5314FC2D9C003A3842 /* DatePickerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D7D8A5214FC2D9C003A3842 /* DatePickerView_iPhone.xib */; };
+		7D867FF6150402A300FA030E /* NSString+StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D867FF5150402A300FA030E /* NSString+StringUtils.m */; };
+		7D867FF81504298100FA030E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D867FF71504298100FA030E /* CoreLocation.framework */; };
+		7D867FFA1504323D00FA030E /* MapView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D867FF91504323D00FA030E /* MapView_iPhone.xib */; };
+		7D867FFD150433A600FA030E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D867FFC150433A600FA030E /* MapViewController.m */; };
+		7D8680031504349600FA030E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8680021504349600FA030E /* MapKit.framework */; };
+		7D9E6E6115057E56006ACBA1 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E6E6015057E56006ACBA1 /* MapPoint.m */; };
+		7DA71FAA14F6AD1500FAC938 /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71FA314F6AD1500FAC938 /* Coordinate.m */; };
+		7DA71FAB14F6AD1500FAC938 /* EventRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71FA514F6AD1500FAC938 /* EventRequest.m */; };
+		7DA71FAC14F6AD1500FAC938 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71FA714F6AD1500FAC938 /* Location.m */; };
+		7DA71FAD14F6AD1500FAC938 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71FA914F6AD1500FAC938 /* Match.m */; };
+		7DA71FCF14F6AE2E00FAC938 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FC614F6AD9F00FAC938 /* libRestKit.a */; };
+		7DA71FD714F6AE5400FAC938 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FD014F6AE5400FAC938 /* CFNetwork.framework */; };
+		7DA71FD814F6AE5400FAC938 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FD114F6AE5400FAC938 /* CoreData.framework */; };
+		7DA71FD914F6AE5400FAC938 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FD214F6AE5400FAC938 /* libxml2.dylib */; };
+		7DA71FDA14F6AE5400FAC938 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FD314F6AE5400FAC938 /* MobileCoreServices.framework */; };
+		7DA71FDB14F6AE5400FAC938 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FD414F6AE5400FAC938 /* QuartzCore.framework */; };
+		7DA71FDC14F6AE5400FAC938 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FD514F6AE5400FAC938 /* Security.framework */; };
+		7DA71FDD14F6AE5400FAC938 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FD614F6AE5400FAC938 /* SystemConfiguration.framework */; };
+		7DA9E08614F6903400F731F3 /* mainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E08514F6903300F731F3 /* mainWindow.xib */; };
+		7DA9E09114F6973600F731F3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9E08F14F6973600F731F3 /* RootViewController.m */; };
+		7DA9E09214F6973600F731F3 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E09014F6973600F731F3 /* RootViewController.xib */; };
+		7DA9E0A014F6994000F731F3 /* EventRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9E09414F6994000F731F3 /* EventRequestController.m */; };
+		7DA9E0A114F6994000F731F3 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9E09514F6994000F731F3 /* LocationController.m */; };
+		7DA9E0A214F6994000F731F3 /* MatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9E09614F6994000F731F3 /* MatchController.m */; };
+		7DA9E0A314F6994000F731F3 /* EventRequestView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E09714F6994000F731F3 /* EventRequestView_iPad.xib */; };
+		7DA9E0A414F6994000F731F3 /* EventRequestView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E09814F6994000F731F3 /* EventRequestView_iPhone.xib */; };
+		7DA9E0A514F6994000F731F3 /* LocationView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E09914F6994000F731F3 /* LocationView_iPad.xib */; };
+		7DA9E0A614F6994000F731F3 /* LocationView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E09A14F6994000F731F3 /* LocationView_iPhone.xib */; };
+		7DA9E0A714F6994000F731F3 /* MatchView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E09B14F6994000F731F3 /* MatchView_iPad.xib */; };
+		7DA9E0A814F6994000F731F3 /* MatchView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E09C14F6994000F731F3 /* MatchView_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,25 +62,108 @@
 			remoteGlobalIDString = 7D74593C14F68D8A00AFB621;
 			remoteInfo = MixAndMatch;
 		};
+		7DA71FC514F6AD9F00FAC938 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA71FBB14F6AD9E00FAC938 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		7DA71FC714F6AD9F00FAC938 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA71FBB14F6AD9E00FAC938 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		7DA71FC914F6AD9F00FAC938 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA71FBB14F6AD9E00FAC938 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		7DA71FCB14F6AD9F00FAC938 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA71FBB14F6AD9E00FAC938 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		7DA71FCD14F6AE2600FAC938 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA71FBB14F6AD9E00FAC938 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D25514F14F830B100BC7C82 /* SetupLunchView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupLunchView_iPhone.xib; sourceTree = "<group>"; };
+		7D25517514F84FAD00BC7C82 /* SetupLunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupLunchViewController.h; sourceTree = "<group>"; };
+		7D25517614F84FAD00BC7C82 /* SetupLunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupLunchViewController.m; sourceTree = "<group>"; };
 		7D74593D14F68D8A00AFB621 /* MixAndMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixAndMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D74594114F68D8A00AFB621 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7D74594314F68D8A00AFB621 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D74594514F68D8A00AFB621 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7D74594914F68D8A00AFB621 /* MixAndMatch-Info.plist */ = {isa = PBXFileReference; path = "MixAndMatch-Info.plist"; sourceTree = "<group>"; };
+		7D74594914F68D8A00AFB621 /* MixAndMatch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MixAndMatch-Info.plist"; sourceTree = "<group>"; };
 		7D74594B14F68D8A00AFB621 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7D74594D14F68D8A00AFB621 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7D74594F14F68D8A00AFB621 /* MixAndMatch-Prefix.pch */ = {isa = PBXFileReference; path = "MixAndMatch-Prefix.pch"; sourceTree = "<group>"; };
-		7D74595014F68D8A00AFB621 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		7D74594F14F68D8A00AFB621 /* MixAndMatch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MixAndMatch-Prefix.pch"; sourceTree = "<group>"; };
+		7D74595014F68D8A00AFB621 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D74595114F68D8A00AFB621 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D74595814F68D8A00AFB621 /* MixAndMatchTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixAndMatchTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D74595914F68D8A00AFB621 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		7D74596114F68D8A00AFB621 /* MixAndMatchTests-Info.plist */ = {isa = PBXFileReference; path = "MixAndMatchTests-Info.plist"; sourceTree = "<group>"; };
+		7D74596114F68D8A00AFB621 /* MixAndMatchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MixAndMatchTests-Info.plist"; sourceTree = "<group>"; };
 		7D74596314F68D8A00AFB621 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7D74596514F68D8A00AFB621 /* MixAndMatchTests.h */ = {isa = PBXFileReference; path = MixAndMatchTests.h; sourceTree = "<group>"; };
+		7D74596514F68D8A00AFB621 /* MixAndMatchTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixAndMatchTests.h; sourceTree = "<group>"; };
 		7D74596614F68D8A00AFB621 /* MixAndMatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MixAndMatchTests.m; sourceTree = "<group>"; };
+		7D7D8A4F14FC2D76003A3842 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
+		7D7D8A5014FC2D76003A3842 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
+		7D7D8A5214FC2D9C003A3842 /* DatePickerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerView_iPhone.xib; sourceTree = "<group>"; };
+		7D867FF4150402A300FA030E /* NSString+StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringUtils.h"; sourceTree = "<group>"; };
+		7D867FF5150402A300FA030E /* NSString+StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringUtils.m"; sourceTree = "<group>"; };
+		7D867FF71504298100FA030E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7D867FF91504323D00FA030E /* MapView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView_iPhone.xib; sourceTree = "<group>"; };
+		7D867FFB150433A600FA030E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		7D867FFC150433A600FA030E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		7D8680021504349600FA030E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7D9E6E5F15057E56006ACBA1 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
+		7D9E6E6015057E56006ACBA1 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
+		7DA71FA114F6AD1500FAC938 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		7DA71FA214F6AD1500FAC938 /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
+		7DA71FA314F6AD1500FAC938 /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
+		7DA71FA414F6AD1500FAC938 /* EventRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventRequest.h; sourceTree = "<group>"; };
+		7DA71FA514F6AD1500FAC938 /* EventRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventRequest.m; sourceTree = "<group>"; };
+		7DA71FA614F6AD1500FAC938 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		7DA71FA714F6AD1500FAC938 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		7DA71FA814F6AD1500FAC938 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
+		7DA71FA914F6AD1500FAC938 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
+		7DA71FBB14F6AD9E00FAC938 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		7DA71FD014F6AE5400FAC938 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7DA71FD114F6AE5400FAC938 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7DA71FD214F6AE5400FAC938 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		7DA71FD314F6AE5400FAC938 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7DA71FD414F6AE5400FAC938 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7DA71FD514F6AE5400FAC938 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7DA71FD614F6AE5400FAC938 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7DA9E08514F6903300F731F3 /* mainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mainWindow.xib; sourceTree = "<group>"; };
+		7DA9E08E14F6973600F731F3 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		7DA9E08F14F6973600F731F3 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		7DA9E09014F6973600F731F3 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		7DA9E09414F6994000F731F3 /* EventRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventRequestController.m; sourceTree = "<group>"; };
+		7DA9E09514F6994000F731F3 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
+		7DA9E09614F6994000F731F3 /* MatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchController.m; sourceTree = "<group>"; };
+		7DA9E09714F6994000F731F3 /* EventRequestView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventRequestView_iPad.xib; sourceTree = "<group>"; };
+		7DA9E09814F6994000F731F3 /* EventRequestView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventRequestView_iPhone.xib; sourceTree = "<group>"; };
+		7DA9E09914F6994000F731F3 /* LocationView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationView_iPad.xib; sourceTree = "<group>"; };
+		7DA9E09A14F6994000F731F3 /* LocationView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationView_iPhone.xib; sourceTree = "<group>"; };
+		7DA9E09B14F6994000F731F3 /* MatchView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchView_iPad.xib; sourceTree = "<group>"; };
+		7DA9E09C14F6994000F731F3 /* MatchView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchView_iPhone.xib; sourceTree = "<group>"; };
+		7DA9E09D14F6994000F731F3 /* EventRequestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventRequestController.h; sourceTree = "<group>"; };
+		7DA9E09E14F6994000F731F3 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		7DA9E09F14F6994000F731F3 /* MatchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +171,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D8680031504349600FA030E /* MapKit.framework in Frameworks */,
+				7D867FF81504298100FA030E /* CoreLocation.framework in Frameworks */,
+				7DA71FD714F6AE5400FAC938 /* CFNetwork.framework in Frameworks */,
+				7DA71FD814F6AE5400FAC938 /* CoreData.framework in Frameworks */,
+				7DA71FD914F6AE5400FAC938 /* libxml2.dylib in Frameworks */,
+				7DA71FDA14F6AE5400FAC938 /* MobileCoreServices.framework in Frameworks */,
+				7DA71FDB14F6AE5400FAC938 /* QuartzCore.framework in Frameworks */,
+				7DA71FDC14F6AE5400FAC938 /* Security.framework in Frameworks */,
+				7DA71FDD14F6AE5400FAC938 /* SystemConfiguration.framework in Frameworks */,
+				7D74594614F68D8A00AFB621 /* CoreGraphics.framework in Frameworks */,
+				7DA71FCF14F6AE2E00FAC938 /* libRestKit.a in Frameworks */,
 				7D74594214F68D8A00AFB621 /* UIKit.framework in Frameworks */,
 				7D74594414F68D8A00AFB621 /* Foundation.framework in Frameworks */,
-				7D74594614F68D8A00AFB621 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +203,7 @@
 		7D74593214F68D8A00AFB621 = {
 			isa = PBXGroup;
 			children = (
+				7DA71FBB14F6AD9E00FAC938 /* RestKit.xcodeproj */,
 				7D74594714F68D8A00AFB621 /* MixAndMatch */,
 				7D74595F14F68D8A00AFB621 /* MixAndMatchTests */,
 				7D74594014F68D8A00AFB621 /* Frameworks */,
@@ -95,10 +223,19 @@
 		7D74594014F68D8A00AFB621 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D8680021504349600FA030E /* MapKit.framework */,
+				7DA71FD014F6AE5400FAC938 /* CFNetwork.framework */,
+				7DA71FD114F6AE5400FAC938 /* CoreData.framework */,
+				7DA71FD214F6AE5400FAC938 /* libxml2.dylib */,
+				7DA71FD314F6AE5400FAC938 /* MobileCoreServices.framework */,
+				7DA71FD414F6AE5400FAC938 /* QuartzCore.framework */,
+				7DA71FD514F6AE5400FAC938 /* Security.framework */,
+				7DA71FD614F6AE5400FAC938 /* SystemConfiguration.framework */,
 				7D74594114F68D8A00AFB621 /* UIKit.framework */,
 				7D74594314F68D8A00AFB621 /* Foundation.framework */,
 				7D74594514F68D8A00AFB621 /* CoreGraphics.framework */,
 				7D74595914F68D8A00AFB621 /* SenTestingKit.framework */,
+				7D867FF71504298100FA030E /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -108,6 +245,9 @@
 			children = (
 				7D74595014F68D8A00AFB621 /* AppDelegate.h */,
 				7D74595114F68D8A00AFB621 /* AppDelegate.m */,
+				7DA71FA014F6AD1500FAC938 /* Model */,
+				7DA9E09314F6977E00F731F3 /* View */,
+				7DA9E0A914F6995D00F731F3 /* Controller */,
 				7D74594814F68D8A00AFB621 /* Supporting Files */,
 			);
 			path = MixAndMatch;
@@ -143,6 +283,76 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7DA71FA014F6AD1500FAC938 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7DA71FA114F6AD1500FAC938 /* BaseModel.h */,
+				7DA71FA214F6AD1500FAC938 /* Coordinate.h */,
+				7DA71FA314F6AD1500FAC938 /* Coordinate.m */,
+				7DA71FA414F6AD1500FAC938 /* EventRequest.h */,
+				7DA71FA514F6AD1500FAC938 /* EventRequest.m */,
+				7DA71FA614F6AD1500FAC938 /* Location.h */,
+				7DA71FA714F6AD1500FAC938 /* Location.m */,
+				7DA71FA814F6AD1500FAC938 /* Match.h */,
+				7DA71FA914F6AD1500FAC938 /* Match.m */,
+				7D9E6E5F15057E56006ACBA1 /* MapPoint.h */,
+				7D9E6E6015057E56006ACBA1 /* MapPoint.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7DA71FBC14F6AD9E00FAC938 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7DA71FC614F6AD9F00FAC938 /* libRestKit.a */,
+				7DA71FC814F6AD9F00FAC938 /* RestKitTests.octest */,
+				7DA71FCA14F6AD9F00FAC938 /* RestKit.framework */,
+				7DA71FCC14F6AD9F00FAC938 /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DA9E09314F6977E00F731F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7DA9E08514F6903300F731F3 /* mainWindow.xib */,
+				7DA9E09014F6973600F731F3 /* RootViewController.xib */,
+				7DA9E09714F6994000F731F3 /* EventRequestView_iPad.xib */,
+				7DA9E09814F6994000F731F3 /* EventRequestView_iPhone.xib */,
+				7DA9E09914F6994000F731F3 /* LocationView_iPad.xib */,
+				7DA9E09A14F6994000F731F3 /* LocationView_iPhone.xib */,
+				7DA9E09B14F6994000F731F3 /* MatchView_iPad.xib */,
+				7DA9E09C14F6994000F731F3 /* MatchView_iPhone.xib */,
+				7D25514F14F830B100BC7C82 /* SetupLunchView_iPhone.xib */,
+				7D7D8A5214FC2D9C003A3842 /* DatePickerView_iPhone.xib */,
+				7D867FF91504323D00FA030E /* MapView_iPhone.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7DA9E0A914F6995D00F731F3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7DA9E08F14F6973600F731F3 /* RootViewController.m */,
+				7DA9E09414F6994000F731F3 /* EventRequestController.m */,
+				7DA9E09514F6994000F731F3 /* LocationController.m */,
+				7DA9E09614F6994000F731F3 /* MatchController.m */,
+				7D25517614F84FAD00BC7C82 /* SetupLunchViewController.m */,
+				7D7D8A5014FC2D76003A3842 /* DatePickerViewController.m */,
+				7DA9E08E14F6973600F731F3 /* RootViewController.h */,
+				7DA9E09D14F6994000F731F3 /* EventRequestController.h */,
+				7DA9E09E14F6994000F731F3 /* LocationController.h */,
+				7DA9E09F14F6994000F731F3 /* MatchController.h */,
+				7D25517514F84FAD00BC7C82 /* SetupLunchViewController.h */,
+				7D7D8A4F14FC2D76003A3842 /* DatePickerViewController.h */,
+				7D867FF4150402A300FA030E /* NSString+StringUtils.h */,
+				7D867FF5150402A300FA030E /* NSString+StringUtils.m */,
+				7D867FFB150433A600FA030E /* MapViewController.h */,
+				7D867FFC150433A600FA030E /* MapViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,6 +367,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7DA71FCE14F6AE2600FAC938 /* PBXTargetDependency */,
 			);
 			name = MixAndMatch;
 			productName = MixAndMatch;
@@ -200,6 +411,12 @@
 			mainGroup = 7D74593214F68D8A00AFB621;
 			productRefGroup = 7D74593E14F68D8A00AFB621 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7DA71FBC14F6AD9E00FAC938 /* Products */;
+					ProjectRef = 7DA71FBB14F6AD9E00FAC938 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7D74593C14F68D8A00AFB621 /* MixAndMatch */,
@@ -208,12 +425,54 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		7DA71FC614F6AD9F00FAC938 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 7DA71FC514F6AD9F00FAC938 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7DA71FC814F6AD9F00FAC938 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 7DA71FC714F6AD9F00FAC938 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7DA71FCA14F6AD9F00FAC938 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 7DA71FC914F6AD9F00FAC938 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7DA71FCC14F6AD9F00FAC938 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 7DA71FCB14F6AD9F00FAC938 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		7D74593B14F68D8A00AFB621 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7D74594C14F68D8A00AFB621 /* InfoPlist.strings in Resources */,
+				7DA9E08614F6903400F731F3 /* mainWindow.xib in Resources */,
+				7DA9E09214F6973600F731F3 /* RootViewController.xib in Resources */,
+				7DA9E0A314F6994000F731F3 /* EventRequestView_iPad.xib in Resources */,
+				7DA9E0A414F6994000F731F3 /* EventRequestView_iPhone.xib in Resources */,
+				7DA9E0A514F6994000F731F3 /* LocationView_iPad.xib in Resources */,
+				7DA9E0A614F6994000F731F3 /* LocationView_iPhone.xib in Resources */,
+				7DA9E0A714F6994000F731F3 /* MatchView_iPad.xib in Resources */,
+				7DA9E0A814F6994000F731F3 /* MatchView_iPhone.xib in Resources */,
+				7D25515014F830B100BC7C82 /* SetupLunchView_iPhone.xib in Resources */,
+				7D7D8A5314FC2D9C003A3842 /* DatePickerView_iPhone.xib in Resources */,
+				7D867FFA1504323D00FA030E /* MapView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +509,19 @@
 			files = (
 				7D74594E14F68D8A00AFB621 /* main.m in Sources */,
 				7D74595214F68D8A00AFB621 /* AppDelegate.m in Sources */,
+				7DA9E09114F6973600F731F3 /* RootViewController.m in Sources */,
+				7DA9E0A014F6994000F731F3 /* EventRequestController.m in Sources */,
+				7DA9E0A114F6994000F731F3 /* LocationController.m in Sources */,
+				7DA9E0A214F6994000F731F3 /* MatchController.m in Sources */,
+				7DA71FAA14F6AD1500FAC938 /* Coordinate.m in Sources */,
+				7DA71FAB14F6AD1500FAC938 /* EventRequest.m in Sources */,
+				7DA71FAC14F6AD1500FAC938 /* Location.m in Sources */,
+				7DA71FAD14F6AD1500FAC938 /* Match.m in Sources */,
+				7D25517714F84FAE00BC7C82 /* SetupLunchViewController.m in Sources */,
+				7D7D8A5114FC2D76003A3842 /* DatePickerViewController.m in Sources */,
+				7D867FF6150402A300FA030E /* NSString+StringUtils.m in Sources */,
+				7D867FFD150433A600FA030E /* MapViewController.m in Sources */,
+				7D9E6E6115057E56006ACBA1 /* MapPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +540,11 @@
 			isa = PBXTargetDependency;
 			target = 7D74593C14F68D8A00AFB621 /* MixAndMatch */;
 			targetProxy = 7D74595D14F68D8A00AFB621 /* PBXContainerItemProxy */;
+		};
+		7DA71FCE14F6AE2600FAC938 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 7DA71FCD14F6AE2600FAC938 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -298,6 +575,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -310,7 +588,15 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PROFILING_CODE = NO;
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -323,13 +609,22 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PROFILING_CODE = NO;
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -339,10 +634,12 @@
 		7D74596B14F68D8A00AFB621 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Florian Schebelle (S8EJUU3EV8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MixAndMatch/MixAndMatch-Prefix.pch";
 				INFOPLIST_FILE = "MixAndMatch/MixAndMatch-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -350,10 +647,12 @@
 		7D74596C14F68D8A00AFB621 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Florian Schebelle (S8EJUU3EV8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MixAndMatch/MixAndMatch-Prefix.pch";
 				INFOPLIST_FILE = "MixAndMatch/MixAndMatch-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -411,6 +710,7 @@
 				7D74596C14F68D8A00AFB621 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D74596D14F68D8A00AFB621 /* Build configuration list for PBXNativeTarget "MixAndMatchTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +719,7 @@
 				7D74596F14F68D8A00AFB621 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
