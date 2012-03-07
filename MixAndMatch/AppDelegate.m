@@ -8,20 +8,53 @@
 
 #import "AppDelegate.h"
 
+#import <RestKit/RestKit.h>
+
+#import "Model/EventRequest.h"
+#import "Model/Location.h"
+#import "Model/Match.h"
 @implementation AppDelegate
 
+@synthesize navigationController = _navigationController;
 @synthesize window = _window;
+
++ (NSDateFormatter *) objectToJson
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
+    [dateFormatter  setDateFormat:@"yyyyMMdd"];
+    dateFormatter.timeZone = [NSTimeZone defaultTimeZone];
+    dateFormatter.locale = [NSLocale currentLocale];
+    return dateFormatter;
+}
+
++ (NSDateFormatter *) jsonToObject
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
+    [dateFormatter  setDateFormat:@"dd.MM.yyyy"];
+    dateFormatter.timeZone = [NSTimeZone defaultTimeZone];
+    dateFormatter.locale = [NSLocale currentLocale];
+    return dateFormatter;
+    
+}
 
 - (void)dealloc
 {
     [_window release];
+    [_navigationController release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    // Setup the RKObjectManager for the RESTFul Webservice URL.
+    [RKObjectManager objectManagerWithBaseURL:@"http://ec2-46-137-12-115.eu-west-1.compute.amazonaws.com/api"];
+    // Setup the default date handling
+    [RKObjectMapping addDefaultDateFormatter: [AppDelegate objectToJson]];
+    [RKObjectMapping setPreferredDateFormatter: [AppDelegate jsonToObject]];
+    [self setupObjectMapping];
+    [self setupResourcePathes];
     // Override point for customization after application launch.
+    self.window.rootViewController = self.navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -52,6 +85,34 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void) setupResourcePathes{
+    RKObjectRouter *router = [RKObjectRouter new];
+    
+    //[router routeClass: [EventRequest class] toResourcePath:@"/requests/" forMethod:RKRequestMethodGET];
+    //[router routeClass: [EventRequest class] toResourcePath:@"/requests/(locationKey)" forMethod:RKRequestMethodGET];
+    //[router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date" forMethod:RKRequestMethodGET];
+    //[router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date/lunch" forMethod:RKRequestMethodGET];
+    [router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date/lunch/:userId" forMethod:RKRequestMethodGET];
+    //[router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date/lunch/:userId" forMethod:RKRequestMethodDELETE];
+    [router routeClass: [EventRequest class] toResourcePath:@"/requests" forMethod:RKRequestMethodPOST]; // Params: &locationKey=&userid=&date=
+    //[router routeClass: [EventRequest class] toResourcePath:@"/users/:userId" forMethod:RKRequestMethodGET];
+    
+    //[router routeClass:[Match class] toResourcePath:@"/matches" forMethod:RKRequestMethodGET];
+    [router routeClass:[Match class] toResourcePath:@"/users/:userId/matches" forMethod:RKRequestMethodGET];
+    
+    //[router routeClass: [Location class] toResourcePath:@"/locations/:key"];
+    [router routeClass: [Location class] toResourcePath:@"/locations" forMethod:RKRequestMethodGET];
+    
+    [RKObjectManager sharedManager].router = router;
+    [router release];
+}
+
+- (void) setupObjectMapping
+{
+    //[[RKObjectManager sharedManager].mappingProvider setSerializationMapping:[EventRequest mapping] forClass:[EventRequest class]];
+    [[RKObjectManager sharedManager].mappingProvider addObjectMapping:[EventRequest mapping]];
 }
 
 @end
