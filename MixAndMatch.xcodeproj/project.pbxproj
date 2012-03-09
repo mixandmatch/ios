@@ -41,8 +41,8 @@
 		7DA71FDC14F6AE5400FAC938 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FD514F6AE5400FAC938 /* Security.framework */; };
 		7DA71FDD14F6AE5400FAC938 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA71FD614F6AE5400FAC938 /* SystemConfiguration.framework */; };
 		7DA9E08614F6903400F731F3 /* mainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E08514F6903300F731F3 /* mainWindow.xib */; };
-		7DA9E09114F6973600F731F3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9E08F14F6973600F731F3 /* RootViewController.m */; };
-		7DA9E09214F6973600F731F3 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E09014F6973600F731F3 /* RootViewController.xib */; };
+		7DA9E09114F6973600F731F3 /* SetUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9E08F14F6973600F731F3 /* SetUserViewController.m */; };
+		7DA9E09214F6973600F731F3 /* SetUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA9E09014F6973600F731F3 /* SetUserViewController.xib */; };
 		7DA9E0A014F6994000F731F3 /* EventRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9E09414F6994000F731F3 /* EventRequestController.m */; };
 		7DA9E0A114F6994000F731F3 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9E09514F6994000F731F3 /* LocationController.m */; };
 		7DA9E0A214F6994000F731F3 /* MatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9E09614F6994000F731F3 /* MatchController.m */; };
@@ -149,9 +149,9 @@
 		7DA71FD514F6AE5400FAC938 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7DA71FD614F6AE5400FAC938 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7DA9E08514F6903300F731F3 /* mainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mainWindow.xib; sourceTree = "<group>"; };
-		7DA9E08E14F6973600F731F3 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		7DA9E08F14F6973600F731F3 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		7DA9E09014F6973600F731F3 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		7DA9E08E14F6973600F731F3 /* SetUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUserViewController.h; sourceTree = "<group>"; };
+		7DA9E08F14F6973600F731F3 /* SetUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUserViewController.m; sourceTree = "<group>"; };
+		7DA9E09014F6973600F731F3 /* SetUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetUserViewController.xib; sourceTree = "<group>"; };
 		7DA9E09414F6994000F731F3 /* EventRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventRequestController.m; sourceTree = "<group>"; };
 		7DA9E09514F6994000F731F3 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 		7DA9E09614F6994000F731F3 /* MatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchController.m; sourceTree = "<group>"; };
@@ -316,7 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				7DA9E08514F6903300F731F3 /* mainWindow.xib */,
-				7DA9E09014F6973600F731F3 /* RootViewController.xib */,
+				7DA9E09014F6973600F731F3 /* SetUserViewController.xib */,
 				7DA9E09714F6994000F731F3 /* EventRequestView_iPad.xib */,
 				7DA9E09814F6994000F731F3 /* EventRequestView_iPhone.xib */,
 				7DA9E09914F6994000F731F3 /* LocationView_iPad.xib */,
@@ -333,13 +333,13 @@
 		7DA9E0A914F6995D00F731F3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7DA9E08F14F6973600F731F3 /* RootViewController.m */,
+				7DA9E08F14F6973600F731F3 /* SetUserViewController.m */,
 				7DA9E09414F6994000F731F3 /* EventRequestController.m */,
 				7DA9E09514F6994000F731F3 /* LocationController.m */,
 				7DA9E09614F6994000F731F3 /* MatchController.m */,
 				7D25517614F84FAD00BC7C82 /* SetupLunchViewController.m */,
 				7D7D8A5014FC2D76003A3842 /* DatePickerViewController.m */,
-				7DA9E08E14F6973600F731F3 /* RootViewController.h */,
+				7DA9E08E14F6973600F731F3 /* SetUserViewController.h */,
 				7DA9E09D14F6994000F731F3 /* EventRequestController.h */,
 				7DA9E09E14F6994000F731F3 /* LocationController.h */,
 				7DA9E09F14F6994000F731F3 /* MatchController.h */,
@@ -463,7 +463,7 @@
 			files = (
 				7D74594C14F68D8A00AFB621 /* InfoPlist.strings in Resources */,
 				7DA9E08614F6903400F731F3 /* mainWindow.xib in Resources */,
-				7DA9E09214F6973600F731F3 /* RootViewController.xib in Resources */,
+				7DA9E09214F6973600F731F3 /* SetUserViewController.xib in Resources */,
 				7DA9E0A314F6994000F731F3 /* EventRequestView_iPad.xib in Resources */,
 				7DA9E0A414F6994000F731F3 /* EventRequestView_iPhone.xib in Resources */,
 				7DA9E0A514F6994000F731F3 /* LocationView_iPad.xib in Resources */,
@@ -509,7 +509,7 @@
 			files = (
 				7D74594E14F68D8A00AFB621 /* main.m in Sources */,
 				7D74595214F68D8A00AFB621 /* AppDelegate.m in Sources */,
-				7DA9E09114F6973600F731F3 /* RootViewController.m in Sources */,
+				7DA9E09114F6973600F731F3 /* SetUserViewController.m in Sources */,
 				7DA9E0A014F6994000F731F3 /* EventRequestController.m in Sources */,
 				7DA9E0A114F6994000F731F3 /* LocationController.m in Sources */,
 				7DA9E0A214F6994000F731F3 /* MatchController.m in Sources */,
