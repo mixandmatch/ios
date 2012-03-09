@@ -16,7 +16,7 @@
 //@synthesize rev = _rev;
 @synthesize type = _type;
 @synthesize url = _url;
-@synthesize userId = _userId;
+@synthesize userid = _userId;
 
 - (id)init
 {
@@ -49,7 +49,7 @@
     //[mapping mapKeyPath:@"_rev" toAttribute:@"_rev"];
      [mapping mapKeyPath:@"type" toAttribute:@"type"];
      [mapping mapKeyPath:@"url" toAttribute:@"url"];
-     [mapping mapKeyPath:@"userid" toAttribute:@"userId"];
+     [mapping mapKeyPath:@"userid" toAttribute:@"userid"];
     return mapping;
 }
 @end

@@ -13,12 +13,18 @@
 #import "Model/EventRequest.h"
 #import "Model/Location.h"
 #import "Model/Match.h"
+#import "SetupLunchViewController.h"
+#import "EventRequestController.h"
+#import "MatchController.h"
+#import "SetUserViewController.h"
+
 @implementation AppDelegate
 
 @synthesize navigationController = _navigationController;
 @synthesize window = _window;
+@synthesize tabBarController=_tabBarController;
 
-+ (NSDateFormatter *) objectToJson
++ (NSDateFormatter *) JSON_DATE_FORMATTER
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
     [dateFormatter  setDateFormat:@"yyyyMMdd"];
@@ -27,7 +33,7 @@
     return dateFormatter;
 }
 
-+ (NSDateFormatter *) jsonToObject
++ (NSDateFormatter *) GERMAN_DATE_FORMATTER
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
     [dateFormatter  setDateFormat:@"dd.MM.yyyy"];
@@ -48,15 +54,21 @@
 {
     // Setup the RKObjectManager for the RESTFul Webservice URL.
     [RKObjectManager objectManagerWithBaseURL:@"http://ec2-46-137-12-115.eu-west-1.compute.amazonaws.com/api"];
-    // Setup the default date handling
-    [RKObjectMapping addDefaultDateFormatter: [AppDelegate objectToJson]];
-    [RKObjectMapping setPreferredDateFormatter: [AppDelegate jsonToObject]];
+    // Setup JSON MIMEType instead of default FORM MIMEType
+    [RKObjectManager sharedManager].serializationMIMEType = RKMIMETypeJSON;
+    // Setup date format for mapping JSON -> object
+    [RKObjectMapping addDefaultDateFormatter: [AppDelegate JSON_DATE_FORMATTER]];
+    // Setup date format for mapping object->JSON
+    [RKObjectMapping setPreferredDateFormatter: [AppDelegate JSON_DATE_FORMATTER]];
+    // Enable RestKit debug logging.
+    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
     [self setupObjectMapping];
     [self setupResourcePathes];
     // Override point for customization after application launch.
-    self.window.rootViewController = self.navigationController;
+//    self.window.rootViewController = self.navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [self enableTabNavigationBar];
     return YES;
 }
 
@@ -94,7 +106,7 @@
     //[router routeClass: [EventRequest class] toResourcePath:@"/requests/(locationKey)" forMethod:RKRequestMethodGET];
     //[router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date" forMethod:RKRequestMethodGET];
     //[router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date/lunch" forMethod:RKRequestMethodGET];
-    [router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date/lunch/:userId" forMethod:RKRequestMethodGET];
+    [router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date/lunch/:userid" forMethod:RKRequestMethodGET];
     //[router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date/lunch/:userId" forMethod:RKRequestMethodDELETE];
     [router routeClass: [EventRequest class] toResourcePath:@"/requests" forMethod:RKRequestMethodPOST]; // Params: &locationKey=&userid=&date=
     //[router routeClass: [EventRequest class] toResourcePath:@"/users/:userId" forMethod:RKRequestMethodGET];
@@ -111,8 +123,72 @@
 
 - (void) setupObjectMapping
 {
-    //[[RKObjectManager sharedManager].mappingProvider setSerializationMapping:[EventRequest mapping] forClass:[EventRequest class]];
-    [[RKObjectManager sharedManager].mappingProvider addObjectMapping:[EventRequest mapping]];
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:[Location mapping] forClass:[Location class]];
+    
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:[EventRequest mapping] forClass:[EventRequest class]];
+    
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:[Match mapping] forClass:[Match class]];
+}
+
+- (void)enableTabNavigationBar
+{
+    self.tabBarController = [[UITabBarController alloc] init];
+    
+    NSString *eventView;
+    NSString *matchView;
+    NSString *setupLunchView;
+    NSString *setUserView;
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    {
+        eventView=@"EventRequestView_iPhone";
+        matchView=@"MatchView_iPhone";
+        setupLunchView=@"SetupLunchView_iPhone";
+        setUserView=@"SetUserViewController";
+    }else {
+        eventView=@"EventRequestView_iPad";
+        matchView=@"MatchView_iPad";
+        setupLunchView=@"SetupLunchView_iPad";
+        setUserView=@"SetUserView_iPad";
+    }
+    
+    // Setup Event Request controller with tab bar item. Disable this tab bar item.
+    EventRequestController *eventRequestController = [[EventRequestController alloc] initWithNibName:eventView bundle:nil];
+    UITabBarItem *tabBarItemEvent = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:0];
+    [tabBarItemEvent setEnabled:NO];
+    [eventRequestController setTabBarItem:tabBarItemEvent];
+    [tabBarItemEvent release];
+
+    // Setup match controller with tab bar item. Disable this tab bar item.
+    MatchController *matchController = [[MatchController alloc] initWithNibName:matchView bundle:nil];
+    UITabBarItem *tabBarItemMatch = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:1];
+    [tabBarItemMatch setEnabled:NO];
+    [matchController setTabBarItem:tabBarItemMatch];
+    [tabBarItemMatch release];
+    
+    // Setup lunch controller with tab bar item. Disable this tab bar item.
+    SetupLunchViewController *setupLunchController = [[SetupLunchViewController alloc] initWithNibName:setupLunchView bundle:nil];
+    UITabBarItem *tabBarItemSetupLunch = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemMostRecent tag:2];
+    [tabBarItemSetupLunch setEnabled:NO];
+    [setupLunchController setTabBarItem:tabBarItemSetupLunch];
+    [tabBarItemSetupLunch release];
+    
+    // Setup user controller with tab bar item.
+    SetUserViewController *setUserViewController = [[SetUserViewController alloc] initWithNibName:setUserView bundle:nil];
+    [setUserViewController setTabBarItem:[[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemContacts tag:3]];
+    
+    NSArray *controllers = [[NSArray alloc] initWithObjects:setUserViewController, eventRequestController,matchController,setupLunchController, nil];
+    
+    [self.tabBarController setViewControllers:controllers];
+    [SetUserViewController release];
+    [eventRequestController release];
+    [matchController release];
+    [setupLunchController release];
+    
+    [self.window setRootViewController:_tabBarController];
+    
+    // Show the window
+    [[self window] makeKeyAndVisible];
 }
 
 @end

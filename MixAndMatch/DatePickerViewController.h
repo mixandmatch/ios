@@ -12,7 +12,7 @@
 @protocol DateControllerDelegate <NSObject>
 
 @required
-- (void) transfeDate:(NSDate *) date;
+- (void) transferDate:(NSDate *) date;
 
 @end
 

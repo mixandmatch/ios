@@ -128,66 +128,32 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
     }
     
+    NSString *cellDetail=@"";
     NSString *cellLabel=@"";
     
     if(indexPath.section==0)
     {
         if(_date)
         {
-            NSDateFormatter *formatter = [AppDelegate jsonToObject];
-            cellLabel=[formatter stringFromDate:_date];
+            NSDateFormatter *formatter = [AppDelegate GERMAN_DATE_FORMATTER];
+            cellDetail=[formatter stringFromDate:_date];
         }
+        cellLabel=@"Date:";
     }else if(indexPath.section==1)
     {
         if(_location)
         {
-            cellLabel=[_location key];
+            cellDetail=[_location key];
         }
+        cellLabel=@"Location:";
     }
     
     cell.textLabel.text=cellLabel;
+    cell.detailTextLabel.text=cellDetail;
     
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }   
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }   
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 #pragma mark - Table view delegate
 
@@ -213,7 +179,8 @@
     [viewController setDelegate:self];
     
     if (viewController) {
-        [self.navigationController pushViewController:viewController animated:YES];
+        [self presentViewController:viewController animated:YES completion: nil];
+        //        [self.navigationController pushViewController:viewController animated:YES];
         if (viewController.title == nil) {
             viewController.title = title;
         }
@@ -234,9 +201,11 @@
 {
     EventRequest *eventRequest = [[EventRequest alloc] init];
     [eventRequest retain];
-    [eventRequest setDate:_date];
-    [eventRequest setLocationKey:[_location key]];
-    [eventRequest setUserId:_userName];
+    [eventRequest setDate:[self selectedDate]];
+    [eventRequest setLocationKey:[[self selectedLocation] key]];
+    //NSLog(@"_userName: %@", [self userName]);
+    [eventRequest setUserid:[self userName]];
+    [eventRequest setType:@"request"];
     
     //[[RKObjectManager sharedManager] postObject:eventRequest delegate:self];
     [[RKObjectManager sharedManager] postObject:eventRequest mapResponseWith:[EventRequest mapping] delegate:self];
@@ -254,10 +223,10 @@
     [[self tableView] reloadData];
     NSLog(@"Indexpath: %i",[[[self tableView] indexPathForSelectedRow] section]);
 }
-- (void) transfeDate:(NSDate *) date
+- (void) transferDate:(NSDate *) date
 {
     [self setSelectedDate:date];
-    [[self view]reloadData];
+    [[self tableView]reloadData];
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark RestKit Object Loader

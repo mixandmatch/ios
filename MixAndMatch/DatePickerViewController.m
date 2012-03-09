@@ -45,9 +45,9 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    if([_delegate respondsToSelector:@selector(transfeDate:)])
+    if([_delegate respondsToSelector:@selector(transferDate:)])
     {
-        [_delegate transfeDate:[_datePicker date]];
+        [_delegate transferDate:[_datePicker date]];
     }
 }
 - (void)viewDidUnload
@@ -69,13 +69,13 @@
 
 - (void)setCurrentDateFromPicker
 {
-    NSDateFormatter *formatter = [AppDelegate jsonToObject];
+    NSDateFormatter *formatter = [AppDelegate GERMAN_DATE_FORMATTER];
     _dateTextField.text = [formatter stringFromDate: [_datePicker date]];
 }
 
 - (void)updateDateValue:(id)sender
 {
-    NSDateFormatter *formatter = [AppDelegate jsonToObject];
+    NSDateFormatter *formatter = [AppDelegate GERMAN_DATE_FORMATTER];
     NSDate *date = [_datePicker date];
     _dateTextField.text = [formatter stringFromDate:date];
     [self reloadInputViews];

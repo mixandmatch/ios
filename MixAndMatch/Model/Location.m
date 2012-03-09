@@ -44,10 +44,10 @@
 + (RKObjectMapping*) mapping{
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Location class]];
     [mapping mapKeyPathsToAttributes:
-     @"description",@"_descriptionText",
-     @"key",@"_key",
-     @"label",@"_label",
-     @"venue",@"_venue", nil];
+     @"description",@"descriptionText",
+     @"key",@"key",
+     @"label",@"label",
+     @"venue",@"venue", nil];
     [mapping mapRelationship:@"coordinates" withMapping:[Coordinate mapping]];
     return mapping;
 }

@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface AppDelegate : NSObject <UIApplicationDelegate>
+@interface AppDelegate : NSObject <UIApplicationDelegate,
+RKObjectLoaderDelegate>
 
-+ (NSDateFormatter *) jsonToObject;
-+ (NSDateFormatter *) objectToJson;
++ (NSDateFormatter *) GERMAN_DATE_FORMATTER;
++ (NSDateFormatter *) JSON_DATE_FORMATTER;
 
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property(nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @end

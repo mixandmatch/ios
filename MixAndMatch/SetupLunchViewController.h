@@ -17,9 +17,6 @@
     NSArray *tableSections;
     NSArray *tableContentDate;
     NSArray *tableContentLocation;
-    Location *selectedLocation;
-    NSDate *selectedDate;
-    NSString *userName;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forUser: (NSString *) selectedUserName;
 @property (nonatomic,retain) Location *selectedLocation;

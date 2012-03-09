@@ -78,10 +78,10 @@
     }
     EventRequest *item = [eventRequests objectAtIndex:indexPath.row];
     NSMutableString *itemText = [[NSMutableString alloc] initWithString:@"["];
-    NSDateFormatter *formatter = [AppDelegate jsonToObject];
+    NSDateFormatter *formatter = [AppDelegate GERMAN_DATE_FORMATTER];
     [itemText appendString:[formatter stringFromDate: item.date]];
     [itemText appendString:@"] mit: "];
-    [itemText appendString:item.userId];
+    [itemText appendString:item.userid];
     cell.textLabel.text = itemText;
     return cell;
 }

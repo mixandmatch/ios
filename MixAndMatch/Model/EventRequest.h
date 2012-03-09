@@ -18,6 +18,6 @@
 //@property (nonatomic, copy) NSString *rev;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *url;
-@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, copy) NSString *userid;
 
 @end

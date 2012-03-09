@@ -26,8 +26,8 @@
 + (RKObjectMapping*) mapping{
     return [RKObjectMapping mappingForClass:[Coordinate class] block:^(RKObjectMapping* mapping) {
         [mapping mapKeyPathsToAttributes:
-         @"lat",@"_lat",
-         @"lon",@"_lon", nil];
+         @"lat",@"lat",
+         @"lon",@"lon", nil];
     }];
 }
 

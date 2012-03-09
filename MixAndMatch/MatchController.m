@@ -37,7 +37,13 @@
 {
     [super viewDidAppear:animated];
 	// Do any additional setup after loading the view, typically from a nib.
-     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/matches" objectMapping:[Match mapping] delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/users/ttt/matches" objectMapping:[Match mapping] delegate:self];
+//    Match *match = [[Match alloc]init];
+//    [match retain];
+//    [match setUsers:[[NSArray alloc] initWithObjects:@"ttt", nil]];
+//    [[RKObjectManager sharedManager] getObject:match delegate:self];
+//    [match release];
+     
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -85,7 +91,7 @@
     for (Match *item in objects) {
         NSLog(@"Item: %@", item);
     }
-    [[self tableView] reloadData];
+    [self.tableView reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error

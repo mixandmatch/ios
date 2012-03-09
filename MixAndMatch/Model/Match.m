@@ -10,10 +10,10 @@
 
 @implementation Match
 
-@synthesize date = date;
-@synthesize locationKey = locationKey;
-@synthesize type = type;
-@synthesize users = users;
+@synthesize date = _date;
+@synthesize locationKey = _locationKey;
+@synthesize type = _type;
+@synthesize users = _users;
 
 - (id)init
 {
@@ -28,10 +28,10 @@
 
 - (void)dealloc
 {
-    [date release], date = nil;
-    [locationKey release], locationKey = nil;
-    [type release], type = nil;
-    [users release], users = nil;
+    [_date release], _date = nil;
+    [_locationKey release], _locationKey = nil;
+    [_type release], _type = nil;
+    [_users release], _users = nil;
     
     [super dealloc];
     
