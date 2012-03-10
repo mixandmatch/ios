@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 22.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -33,6 +33,8 @@
 @property (nonatomic, retain) IBOutlet UIPickerView *locationPicker;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, retain) MapPoint *locationPoint; 
+- (IBAction)addLocation:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 
 @end

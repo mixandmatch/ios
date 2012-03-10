@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 23.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -15,9 +15,4 @@
 @property (nonatomic, copy) NSString *userName;
 @property(nonatomic,retain) IBOutlet UITextField *userNameTextField;
 
-- (IBAction)setUser:(id)sender;
-- (IBAction)changeToEventRequestView:(id)sender;
-- (IBAction)changeToLocationView:(id)sender;
-- (IBAction)changeToMatchView:(id)sender;
-- (IBAction)changeToSetupLunchView:(id)sender;
 @end

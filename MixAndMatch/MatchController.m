@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 23.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import "MatchController.h"
@@ -14,13 +14,25 @@
 @end
 
 @implementation MatchController
+@synthesize userName;
 
 - (void)dealloc
 {
     [matches release];
+    [userName release];userName=nil;
     [super dealloc];
 }
-
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forUser: (NSString *) selectedUserName
+{
+    self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if(self)
+    {
+        [self setUserName:selectedUserName];
+    }
+    
+    return self;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,13 +49,11 @@
 {
     [super viewDidAppear:animated];
 	// Do any additional setup after loading the view, typically from a nib.
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/users/ttt/matches" objectMapping:[Match mapping] delegate:self];
-//    Match *match = [[Match alloc]init];
-//    [match retain];
-//    [match setUsers:[[NSArray alloc] initWithObjects:@"ttt", nil]];
-//    [[RKObjectManager sharedManager] getObject:match delegate:self];
-//    [match release];
-     
+    NSMutableString *requestPath = [[NSMutableString alloc] initWithString:@"/users/"];
+    [requestPath appendString:userName];
+    [requestPath appendString:@"/matches"];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:requestPath objectMapping:[Match mapping] delegate:self];
+    [requestPath release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -75,27 +85,34 @@
     }
     Match *item = [matches objectAtIndex:indexPath.row];
     NSMutableString *itemText = [[NSMutableString alloc] initWithString:item.locationKey];
-    cell.textLabel.text = itemText;
-    return cell;
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark RestKit Object Loader
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
-{
-    NSLog(@"Received matches!");
-    [matches removeAllObjects];
-    
-    [matches addObjectsFromArray:objects];
-    NSLog(@"Count: %i",[matches count]);
-    for (Match *item in objects) {
-        NSLog(@"Item: %@", item);
+    [itemText appendString:@" mit: { "];
+    for(NSString *user in item.users)
+    {
+        [itemText appendString:user];
+        [itemText appendString:@" "];
     }
-    [self.tableView reloadData];
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    NSLog(@"Error: %@", error.localizedDescription);  
-}
-@end
+    [itemText appendString:@"} in: "];
+     cell.textLabel.text = itemText;
+     return cell;
+     }
+     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark RestKit Object Loader
+     
+     - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+     {
+         NSLog(@"Received matches!");
+         [matches removeAllObjects];
+         
+         [matches addObjectsFromArray:objects];
+         NSLog(@"Count: %i",[matches count]);
+         for (Match *item in objects) {
+             NSLog(@"Item: %@", item);
+         }
+         [self.tableView reloadData];
+     }
+     
+     - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+     {
+         NSLog(@"Error: %@", error.localizedDescription);  
+     }
+     @end

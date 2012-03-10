@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 27.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -17,12 +17,12 @@
 @end
 
 @interface DatePickerViewController : UIViewController<UIPickerViewDelegate>{
-    UITextField *dateTextField;
     UIDatePicker *datePicker;
+    NSDate *selectedDate;
 }
 
 @property (nonatomic, retain) id<DateControllerDelegate> delegate;
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
-@property (nonatomic, retain) IBOutlet UITextField *dateTextField;
-- (IBAction)updateDateValue:(id)sender;
+- (IBAction)addDate:(id)sender;
+- (IBAction)cancel:(id)sender;
 @end

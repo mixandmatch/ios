@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 22.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import "LocationController.h"
@@ -75,10 +75,7 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    if([_delegate respondsToSelector:@selector(transferLocation:)])
-    {
-        [_delegate transferLocation:singleLocation];
-    }
+    
 }
 - (void)viewDidUnload
 {
@@ -148,6 +145,21 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     [self updateMapPoint:row];
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# pragma mark IBAction
+- (IBAction)addLocation:(id)sender
+{
+    if([_delegate respondsToSelector:@selector(transferLocation:)])
+    {
+        [_delegate transferLocation:singleLocation];
+    }
+    [[self presentingViewController] dismissModalViewControllerAnimated:YES];
+}
+- (IBAction)cancel:(id)sender
+{
+    [[self presentingViewController] dismissModalViewControllerAnimated:YES];
+    
 }
 
 @end

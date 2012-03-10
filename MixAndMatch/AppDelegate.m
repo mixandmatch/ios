@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 23.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -155,21 +155,18 @@
     // Setup Event Request controller with tab bar item. Disable this tab bar item.
     EventRequestController *eventRequestController = [[EventRequestController alloc] initWithNibName:eventView bundle:nil];
     UITabBarItem *tabBarItemEvent = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:0];
-    [tabBarItemEvent setEnabled:NO];
     [eventRequestController setTabBarItem:tabBarItemEvent];
     [tabBarItemEvent release];
 
     // Setup match controller with tab bar item. Disable this tab bar item.
     MatchController *matchController = [[MatchController alloc] initWithNibName:matchView bundle:nil];
     UITabBarItem *tabBarItemMatch = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:1];
-    [tabBarItemMatch setEnabled:NO];
     [matchController setTabBarItem:tabBarItemMatch];
     [tabBarItemMatch release];
     
     // Setup lunch controller with tab bar item. Disable this tab bar item.
     SetupLunchViewController *setupLunchController = [[SetupLunchViewController alloc] initWithNibName:setupLunchView bundle:nil];
     UITabBarItem *tabBarItemSetupLunch = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemMostRecent tag:2];
-    [tabBarItemSetupLunch setEnabled:NO];
     [setupLunchController setTabBarItem:tabBarItemSetupLunch];
     [tabBarItemSetupLunch release];
     
@@ -187,8 +184,22 @@
     
     [self.window setRootViewController:_tabBarController];
     
+    //Disable all controllers, despite the user login controller.
+    [self enableControllers:NO];
+    
     // Show the window
     [[self window] makeKeyAndVisible];
+}
+
+- (void)enableControllers:(BOOL)flag
+{
+    UITabBarController *controller = (UITabBarController *)[self tabBarController];
+    // Disable all other tabs
+    for(int i = 1; i<4; i++)
+    {
+        UIViewController *viewController = [controller.viewControllers objectAtIndex:i];
+        [viewController.tabBarItem setEnabled:flag];
+    }
 }
 
 @end

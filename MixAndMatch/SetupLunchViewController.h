@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 25.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,12 +11,14 @@
 #import "Location.h"
 #import "DatePickerViewController.h"
 
-@interface SetupLunchViewController : UITableViewController<LocationControllerDelegate, DateControllerDelegate,RKObjectLoaderDelegate> 
+@interface SetupLunchViewController : UIViewController<LocationControllerDelegate, DateControllerDelegate,UITableViewDelegate, UITableViewDataSource> 
 {
     @private
     NSArray *tableSections;
     NSArray *tableContentDate;
     NSArray *tableContentLocation;
+    IBOutlet UITableView *table;
+    IBOutlet UIBarButtonItem *barButtonItemAdd;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forUser: (NSString *) selectedUserName;
 @property (nonatomic,retain) Location *selectedLocation;

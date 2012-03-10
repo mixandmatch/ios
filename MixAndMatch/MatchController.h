@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 23.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -15,5 +15,6 @@
     NSMutableArray *matches;
     
 }
+@property(nonatomic, copy) NSString * userName;
 
 @end

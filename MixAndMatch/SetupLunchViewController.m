@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 25.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import "SetupLunchViewController.h"
@@ -45,15 +45,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self)
     {
-        // Setup the vie controls
-        UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
-        [[self navigationItem] setLeftBarButtonItem:leftBarButton];
-        [leftBarButton release];
-        
-        UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save:)];
-        [[self navigationItem] setRightBarButtonItem:rightBarButton];
-        [rightBarButton release];
-        // Setup content for sections
         tableContentDate = [[NSArray arrayWithObjects:@"Date",nil] retain];
         tableContentLocation = [[NSArray arrayWithObjects:@"Location", nil] retain];
         // Setup the sections of the table (group layout)
@@ -62,41 +53,7 @@
     }
     return self;
 }
-
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-# pragma mark View control
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    NSLog(@"Did appear!");
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -180,7 +137,7 @@
     
     if (viewController) {
         [self presentViewController:viewController animated:YES completion: nil];
-        //        [self.navigationController pushViewController:viewController animated:YES];
+        
         if (viewController.title == nil) {
             viewController.title = title;
         }
@@ -194,7 +151,11 @@
 
 - (void)cancel:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [_date release];_date=nil;
+    [_location release]; _location=nil;
+    [table reloadData];
+    [self toggleAddButton];
 }
 
 -(void)save:(id)sender
@@ -220,25 +181,25 @@
 -(void)transferLocation:(Location *)location
 {
     [self setSelectedLocation:location];
-    [[self tableView] reloadData];
-    NSLog(@"Indexpath: %i",[[[self tableView] indexPathForSelectedRow] section]);
+    [table reloadData];
+    [self toggleAddButton];
+    NSLog(@"Indexpath: %i",[[table indexPathForSelectedRow] section]);
 }
 - (void) transferDate:(NSDate *) date
 {
     [self setSelectedDate:date];
-    [[self tableView]reloadData];
+    [table reloadData];
+    [self toggleAddButton];
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark RestKit Object Loader
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+-(void)toggleAddButton
 {
-    
+    if(_location && _date)
+    {
+        [barButtonItemAdd setEnabled:YES];
+    }
+    else {
+        [barButtonItemAdd setEnabled:NO];
+    }
 }
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    
-}
-
 @end

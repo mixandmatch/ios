@@ -3,12 +3,13 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 22.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import "EventRequestController.h"
 #import "EventRequest.h"
 #import "AppDelegate.h"
+#import "NSString+StringUtils.h"
 
 @interface EventRequestController ()
 
@@ -38,7 +39,7 @@
 {
     [super viewDidAppear:animated];
     
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/requests" objectMapping:[EventRequest mapping] delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/users/FSE" objectMapping:[EventRequest mapping] delegate:self];
     
 }
 - (void)viewDidLoad
@@ -67,6 +68,8 @@
 #pragma mark UITable
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    EventRequest *item = [eventRequests objectAtIndex:indexPath.row];
+    
     static NSString *cellIdentifier = @"EventRequest";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -76,12 +79,16 @@
         cell.textLabel.font = [UIFont boldSystemFontOfSize:16];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    EventRequest *item = [eventRequests objectAtIndex:indexPath.row];
     NSMutableString *itemText = [[NSMutableString alloc] initWithString:@"["];
     NSDateFormatter *formatter = [AppDelegate GERMAN_DATE_FORMATTER];
     [itemText appendString:[formatter stringFromDate: item.date]];
     [itemText appendString:@"] mit: "];
-    [itemText appendString:item.userid];
+    if(![NSString isBlank:item.userid])
+    {
+        [itemText appendString:item.userid];
+    }
+    [itemText appendString:@" in: "];
+    [itemText appendString:item.locationKey];
     cell.textLabel.text = itemText;
     return cell;
 }
@@ -100,9 +107,6 @@
     
     [eventRequests addObjectsFromArray:objects];
     NSLog(@"Count: %i",[eventRequests count]);
-    for (EventRequest *item in objects) {
-        NSLog(@"Item: %@", item);
-    }
     [[self tableView] reloadData];
 }
 

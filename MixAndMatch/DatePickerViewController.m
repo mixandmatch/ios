@@ -3,7 +3,7 @@
 //  MixAndMatch
 //
 //  Created by Florian Schebelle on 27.02.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 metafinanz Informationssysteme GmbH. All rights reserved.
 //
 
 #import "DatePickerViewController.h"
@@ -17,43 +17,12 @@
 
 @synthesize delegate=_delegate;
 @synthesize datePicker=_datePicker;
-@synthesize dateTextField=_dateTextField;
 
 - (void)dealloc
 {
-    [_dateTextField release];
-    [_datePicker release];
+    [_datePicker release]; _datePicker = nil;
+    [selectedDate release];
     [super dealloc];
-}
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self setCurrentDateFromPicker];
-    [self reloadInputViews];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    if([_delegate respondsToSelector:@selector(transferDate:)])
-    {
-        [_delegate transferDate:[_datePicker date]];
-    }
-}
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -61,24 +30,27 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# pragma mark IBAction
+
+- (IBAction)addDate:(id)sender
 {
-    [self setCurrentDateFromPicker];
-    [self reloadInputViews];
+    if(selectedDate)
+    {
+        [selectedDate release];
+    }
+    selectedDate = [_datePicker date];
+    [selectedDate retain];
+    if([_delegate respondsToSelector:@selector(transferDate:)])
+    {
+        [_delegate transferDate:selectedDate];
+    }
+    [[self presentingViewController] dismissModalViewControllerAnimated:YES];
 }
 
-- (void)setCurrentDateFromPicker
+- (IBAction)cancel:(id)sender
 {
-    NSDateFormatter *formatter = [AppDelegate GERMAN_DATE_FORMATTER];
-    _dateTextField.text = [formatter stringFromDate: [_datePicker date]];
+    [[self presentingViewController] dismissModalViewControllerAnimated:YES];
+    
 }
-
-- (void)updateDateValue:(id)sender
-{
-    NSDateFormatter *formatter = [AppDelegate GERMAN_DATE_FORMATTER];
-    NSDate *date = [_datePicker date];
-    _dateTextField.text = [formatter stringFromDate:date];
-    [self reloadInputViews];
-}
-
 @end
