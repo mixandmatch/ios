@@ -10,32 +10,10 @@
 
 @implementation Match
 
-@synthesize date = _date;
-@synthesize locationKey = _locationKey;
-@synthesize type = _type;
-@synthesize users = _users;
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
-
-- (void)dealloc
-{
-    [_date release], _date = nil;
-    [_locationKey release], _locationKey = nil;
-    [_type release], _type = nil;
-    [_users release], _users = nil;
-    
-    [super dealloc];
-    
-}
+@synthesize date;
+@synthesize locationKey;
+@synthesize type;
+@synthesize users;
 
 + (RKObjectMapping*) mapping{
     return [RKObjectMapping mappingForClass:[Match class] block:^(RKObjectMapping* mapping) {
@@ -45,6 +23,11 @@
          @"type",@"type",
          @"users",@"users", nil];
     }];
+}
+
+- (NSComparisonResult) compareDate: (Match *) other
+{
+    return (other ? [other.date compare:self.date] : NSOrderedDescending);
 }
 
 @end

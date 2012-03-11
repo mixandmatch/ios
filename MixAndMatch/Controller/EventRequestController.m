@@ -17,77 +17,32 @@
 
 @implementation EventRequestController
 
--(void)dealloc
-{
-    [_eventRequests release];
-    [_masterController release]; _masterController=nil;
-    [super dealloc];
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil masterController:(id<MFSetUserDelegate>)delegate
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if(self)
-    {
-        if(!_eventRequests)
-        {
-            _eventRequests = [[NSMutableArray alloc] init];
-        }
-        _masterController = delegate;
-        [_masterController retain];
-    }
-    
-    return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    @throw [NSException exceptionWithName:@"Wrong initializer"
-                                   reason:@"Use initWithNibName: bundle: masterController:"
-                                 userInfo:nil];
-    return nil;
-}
-
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    NSMutableString *requestPath = [[NSMutableString alloc] initWithString:@"/users/"];
-    if([_masterController respondsToSelector:@selector(loginUserName)])
-    {
-        [requestPath appendString:[_masterController loginUserName]];
-    }
+    NSMutableString *requestPath = [[NSMutableString alloc] initWithString:@"/requests"];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:requestPath objectMapping:[EventRequest mapping] delegate:self];
     [requestPath release];
     
-}
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+    [self.activityIndicatorView startAnimating];
     
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark UITable
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EventRequest *item = [_eventRequests objectAtIndex:indexPath.row];
+    EventRequest *item;
+    if(indexPath.section==HVU)
+    {
+        item = [self.entriesHVU objectAtIndex:indexPath.row];
+    }else if(indexPath.section==KP)
+    {
+        item = [self.entriesKP objectAtIndex:indexPath.row];
+    }else
+    {
+        item = [self.entriesOthers objectAtIndex:indexPath.row];
+    }
+    
     [item retain];
     
     static NSString *cellIdentifier = @"EventRequest";
@@ -108,11 +63,9 @@
     {
         [itemText appendString:item.userid];
     }
-    [itemText appendString:@", "];
-    [itemText appendString:[formatter stringFromDate: item.date]];
     cell.detailTextLabel.text = itemText;
     
-    NSMutableString *detailText = [[NSMutableString alloc] initWithString:item.locationKey];
+    NSMutableString *detailText = [[NSMutableString alloc] initWithString:[formatter stringFromDate: item.date]];
     [detailText appendString:@":"];
     cell.textLabel.text=detailText;
     
@@ -125,24 +78,41 @@
     return cell;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [_eventRequests count];
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark RestKit Object Loader
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    [_eventRequests removeAllObjects];
-    [_eventRequests addObjectsFromArray:objects];
-    [[self tableView] reloadData];
-}
-
--(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    NSLog(@"Error: %@", error.localizedDescription);  
-    [AppDelegate showDefaultErrorAlert:self];
+    
+    NSMutableArray *_hvuEvents = [[NSMutableArray alloc] init];
+    NSMutableArray *_kpEvents = [[NSMutableArray alloc] init];
+    NSMutableArray *_othersEvents = [[NSMutableArray alloc] init];
+    
+    for (EventRequest *event in objects) {
+        if(event.userid)
+        {
+            if([@"HVU" caseInsensitiveCompare:event.locationKey] == NSOrderedSame)
+            {
+                [_hvuEvents addObject:event];
+            }else if([@"kistenpfennig" caseInsensitiveCompare:event.locationKey] == NSOrderedSame)
+            {
+                [_kpEvents addObject:event];
+            }else
+            {
+                [_othersEvents addObject:event];
+            }
+        }
+    }
+    [self resetEvents];
+    //Sort Arrays
+    [self setEntriesHVU:[_hvuEvents sortedArrayUsingSelector:@selector(compareDate:)]];
+    [self setEntriesKP:[_kpEvents sortedArrayUsingSelector:@selector(compareDate:)]];
+    [self setEntriesOthers:[_othersEvents sortedArrayUsingSelector:@selector(compareDate:)]];
+    
+    
+    [self.activityIndicatorView stopAnimating];
+    
+    [self.tableView reloadData];
 }
 
 @end

@@ -18,6 +18,18 @@
 @synthesize url = _url;
 @synthesize userid = _userId;
 
++ (RKObjectMapping*) mapping{
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[EventRequest class]];
+    [mapping mapKeyPath:@"date" toAttribute:@"date"];
+    //[mapping mapKeyPath:@"_id" toAttribute:@"_eventRequestId"];
+    [mapping mapKeyPath:@"locationKey" toAttribute:@"locationKey"];
+    //[mapping mapKeyPath:@"_rev" toAttribute:@"_rev"];
+    [mapping mapKeyPath:@"type" toAttribute:@"type"];
+    [mapping mapKeyPath:@"url" toAttribute:@"url"];
+    [mapping mapKeyPath:@"userid" toAttribute:@"userid"];
+    return mapping;
+}
+
 - (id)init
 {
     self = [super init];
@@ -41,15 +53,11 @@
     
 }
 
-+ (RKObjectMapping*) mapping{
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[EventRequest class]];
-     [mapping mapKeyPath:@"date" toAttribute:@"date"];
-    //[mapping mapKeyPath:@"_id" toAttribute:@"_eventRequestId"];
-     [mapping mapKeyPath:@"locationKey" toAttribute:@"locationKey"];
-    //[mapping mapKeyPath:@"_rev" toAttribute:@"_rev"];
-     [mapping mapKeyPath:@"type" toAttribute:@"type"];
-     [mapping mapKeyPath:@"url" toAttribute:@"url"];
-     [mapping mapKeyPath:@"userid" toAttribute:@"userid"];
-    return mapping;
+- (NSComparisonResult) compareDate: (EventRequest *) other
+{
+    return (other ? [other.date compare:self.date] : NSOrderedDescending);
 }
+
+
+
 @end

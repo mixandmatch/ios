@@ -23,8 +23,12 @@
 		7D74595C14F68D8A00AFB621 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74594314F68D8A00AFB621 /* Foundation.framework */; };
 		7D74596414F68D8A00AFB621 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D74596214F68D8A00AFB621 /* InfoPlist.strings */; };
 		7D74596714F68D8A00AFB621 /* MixAndMatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D74596614F68D8A00AFB621 /* MixAndMatchTests.m */; };
+		7D86199E150CE57E00BF7C9C /* MatchDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D86199D150CE57E00BF7C9C /* MatchDetailView.xib */; };
+		7D8619A1150CE8B600BF7C9C /* MatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8619A0150CE8B600BF7C9C /* MatchDetailViewController.m */; };
 		7D867FF81504298100FA030E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D867FF71504298100FA030E /* CoreLocation.framework */; };
 		7D8680031504349600FA030E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8680021504349600FA030E /* MapKit.framework */; };
+		7D880210150CF4EE008B7469 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D88020E150CF4EE008B7469 /* EventKit.framework */; };
+		7D880211150CF4EE008B7469 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D88020F150CF4EE008B7469 /* EventKitUI.framework */; };
 		7D9E6E6115057E56006ACBA1 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E6E6015057E56006ACBA1 /* MapPoint.m */; };
 		7DA71FAA14F6AD1500FAC938 /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71FA314F6AD1500FAC938 /* Coordinate.m */; };
 		7DA71FAB14F6AD1500FAC938 /* EventRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71FA514F6AD1500FAC938 /* EventRequest.m */; };
@@ -57,6 +61,7 @@
 		7DBA6B6D150BC7DA00E19D31 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBA6B65150BC7DA00E19D31 /* LocationController.m */; };
 		7DBA6C7F150BC8AF00E19D31 /* MixAndMatch-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DBA6C7D150BC8AF00E19D31 /* MixAndMatch-Info.plist */; };
 		7DBA6C80150BC8AF00E19D31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBA6C7E150BC8AF00E19D31 /* main.m */; };
+		7DBCC980150CC7FC00B306F5 /* BaseLunchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCC97F150CC7FC00B306F5 /* BaseLunchController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,8 +130,13 @@
 		7D74596314F68D8A00AFB621 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7D74596514F68D8A00AFB621 /* MixAndMatchTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixAndMatchTests.h; sourceTree = "<group>"; };
 		7D74596614F68D8A00AFB621 /* MixAndMatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MixAndMatchTests.m; sourceTree = "<group>"; };
+		7D86199D150CE57E00BF7C9C /* MatchDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MatchDetailView.xib; path = View/MatchDetailView.xib; sourceTree = "<group>"; };
+		7D86199F150CE8B600BF7C9C /* MatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchDetailViewController.h; path = Controller/MatchDetailViewController.h; sourceTree = "<group>"; };
+		7D8619A0150CE8B600BF7C9C /* MatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchDetailViewController.m; path = Controller/MatchDetailViewController.m; sourceTree = "<group>"; };
 		7D867FF71504298100FA030E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7D8680021504349600FA030E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7D88020E150CF4EE008B7469 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		7D88020F150CF4EE008B7469 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		7D9E6E5F15057E56006ACBA1 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
 		7D9E6E6015057E56006ACBA1 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
 		7DA71FA114F6AD1500FAC938 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -173,6 +183,8 @@
 		7DBA6C7C150BC8AF00E19D31 /* MixAndMatch-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MixAndMatch-Prefix.pch"; sourceTree = "<group>"; };
 		7DBA6C7D150BC8AF00E19D31 /* MixAndMatch-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MixAndMatch-Info.plist"; sourceTree = "<group>"; };
 		7DBA6C7E150BC8AF00E19D31 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7DBCC97E150CC7FC00B306F5 /* BaseLunchController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; name = BaseLunchController.h; path = Controller/BaseLunchController.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		7DBCC97F150CC7FC00B306F5 /* BaseLunchController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; name = BaseLunchController.m; path = Controller/BaseLunchController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +192,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D880210150CF4EE008B7469 /* EventKit.framework in Frameworks */,
+				7D880211150CF4EE008B7469 /* EventKitUI.framework in Frameworks */,
 				7D8680031504349600FA030E /* MapKit.framework in Frameworks */,
 				7D867FF81504298100FA030E /* CoreLocation.framework in Frameworks */,
 				7DA71FD714F6AE5400FAC938 /* CFNetwork.framework in Frameworks */,
@@ -236,19 +250,21 @@
 		7D74594014F68D8A00AFB621 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7D8680021504349600FA030E /* MapKit.framework */,
 				7DA71FD014F6AE5400FAC938 /* CFNetwork.framework */,
 				7DA71FD114F6AE5400FAC938 /* CoreData.framework */,
+				7D74594514F68D8A00AFB621 /* CoreGraphics.framework */,
+				7D867FF71504298100FA030E /* CoreLocation.framework */,
+				7D88020E150CF4EE008B7469 /* EventKit.framework */,
+				7D88020F150CF4EE008B7469 /* EventKitUI.framework */,
+				7D74594314F68D8A00AFB621 /* Foundation.framework */,
 				7DA71FD214F6AE5400FAC938 /* libxml2.dylib */,
+				7D8680021504349600FA030E /* MapKit.framework */,
 				7DA71FD314F6AE5400FAC938 /* MobileCoreServices.framework */,
 				7DA71FD414F6AE5400FAC938 /* QuartzCore.framework */,
 				7DA71FD514F6AE5400FAC938 /* Security.framework */,
+				7D74595914F68D8A00AFB621 /* SenTestingKit.framework */,
 				7DA71FD614F6AE5400FAC938 /* SystemConfiguration.framework */,
 				7D74594114F68D8A00AFB621 /* UIKit.framework */,
-				7D74594314F68D8A00AFB621 /* Foundation.framework */,
-				7D74594514F68D8A00AFB621 /* CoreGraphics.framework */,
-				7D74595914F68D8A00AFB621 /* SenTestingKit.framework */,
-				7D867FF71504298100FA030E /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -339,6 +355,7 @@
 				7DBA6B43150BC7C400E19D31 /* MatchView_iPhone.xib */,
 				7DBA6B49150BC7C400E19D31 /* SetupLunchView_iPhone.xib */,
 				7DBA6B4A150BC7C400E19D31 /* SetUserViewController.xib */,
+				7D86199D150CE57E00BF7C9C /* MatchDetailView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -348,6 +365,8 @@
 			children = (
 				7DBA6B56150BC7DA00E19D31 /* DatePickerViewController.h */,
 				7DBA6B5B150BC7DA00E19D31 /* DatePickerViewController.m */,
+				7DBCC97E150CC7FC00B306F5 /* BaseLunchController.h */,
+				7DBCC97F150CC7FC00B306F5 /* BaseLunchController.m */,
 				7DBA6B5F150BC7DA00E19D31 /* EventRequestController.h */,
 				7DBA6B61150BC7DA00E19D31 /* EventRequestController.m */,
 				7DBA6B64150BC7DA00E19D31 /* LocationController.h */,
@@ -360,6 +379,8 @@
 				7DBA6B62150BC7DA00E19D31 /* SetupLunchViewController.m */,
 				7DBA6B63150BC7DA00E19D31 /* SetUserViewController.h */,
 				7DBA6B5D150BC7DA00E19D31 /* SetUserViewController.m */,
+				7D86199F150CE8B600BF7C9C /* MatchDetailViewController.h */,
+				7D8619A0150CE8B600BF7C9C /* MatchDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -508,6 +529,7 @@
 				7D2AE153150BEE6A00CCE28C /* Icon.png in Resources */,
 				7D2AE155150BF32200CCE28C /* mfLogoWhite.png in Resources */,
 				7D2AE157150BF5CB00CCE28C /* mfLogoWhite_630.png in Resources */,
+				7D86199E150CE57E00BF7C9C /* MatchDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +578,8 @@
 				7DBA6B6C150BC7DA00E19D31 /* SetupLunchViewController.m in Sources */,
 				7DBA6B6D150BC7DA00E19D31 /* LocationController.m in Sources */,
 				7DBA6C80150BC8AF00E19D31 /* main.m in Sources */,
+				7DBCC980150CC7FC00B306F5 /* BaseLunchController.m in Sources */,
+				7D8619A1150CE8B600BF7C9C /* MatchDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

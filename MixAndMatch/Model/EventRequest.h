@@ -20,4 +20,6 @@
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *userid;
 
+- (NSComparisonResult) compareDate: (EventRequest *) other;
+
 @end

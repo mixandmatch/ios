@@ -18,12 +18,14 @@
 @synthesize selectedLocation=_location;
 @synthesize selectedDate=_date;
 @synthesize userName=_userName;
+@synthesize table = _table;
+@synthesize barButtonItemAdd = _barButtonItemAdd;
 
 - (void)dealloc
 {
-    [tableContentDate release];
-    [tableContentLocation release];
-    [tableSections release];
+    [_tableContentDate release];
+    [_tableContentLocation release];
+    [_tableSections release];
     [_location release]; _location=nil;
     [_date release]; _date=nil;
     [_userName release]; _userName=nil;
@@ -38,10 +40,10 @@
         _masterController = delegate;
         [_masterController retain];
         
-        tableContentDate = [[NSArray arrayWithObjects:@"Date",nil] retain];
-        tableContentLocation = [[NSArray arrayWithObjects:@"Location", nil] retain];
+        _tableContentDate = [[NSArray arrayWithObjects:@"Date",nil] retain];
+        _tableContentLocation = [[NSArray arrayWithObjects:@"Location", nil] retain];
         // Setup the sections of the table (group layout)
-        tableSections = [[NSArray arrayWithObjects:@"Date", @"Location",nil] retain];
+        _tableSections = [[NSArray arrayWithObjects:@"Date", @"Location",nil] retain];
     }
     
     return self;
@@ -63,19 +65,21 @@
         [self setUserName:[_masterController loginUserName]];
         
     }
+    [_table reloadData];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Table view data source
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [tableSections count];
+    return [_tableSections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -86,7 +90,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [tableSections objectAtIndex:section];
+    return [_tableSections objectAtIndex:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -197,14 +201,14 @@
 -(void)transferLocation:(Location *)location
 {
     [self setSelectedLocation:location];
-    [table reloadData];
+    [_table reloadData];
     [self toggleAddButton];
-    NSLog(@"Indexpath: %i",[[table indexPathForSelectedRow] section]);
+    NSLog(@"Indexpath: %i",[[_table indexPathForSelectedRow] section]);
 }
 - (void) transferDate:(NSDate *) date
 {
     [self setSelectedDate:date];
-    [table reloadData];
+    [_table reloadData];
     [self toggleAddButton];
 }
 
@@ -212,10 +216,10 @@
 {
     if(_location && _date)
     {
-        [barButtonItemAdd setEnabled:YES];
+        [_barButtonItemAdd setEnabled:YES];
     }
     else {
-        [barButtonItemAdd setEnabled:NO];
+        [_barButtonItemAdd setEnabled:NO];
     }
 }
 
@@ -223,7 +227,7 @@
 {
     [_date release];_date=nil;
     [_location release]; _location=nil;
-    [table reloadData];
+    [_table reloadData];
     [self toggleAddButton];
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -25,8 +25,7 @@
 
 - (void)dealloc
 {
-    [_locationPicker release]; _locationPicker = nil;
-    [singleLocation release];
+    [_singleLocation release];
     [_locations release];
     [_locationPoint release]; _locationPoint = nil;
     [super dealloc];
@@ -47,19 +46,19 @@
 
 - (void)updateMapPoint:(NSInteger) row
 {
-    if(singleLocation)
+    if(_singleLocation)
     {
-        [singleLocation release];
+        [_singleLocation release];
     }
-    singleLocation = [_locations objectAtIndex:row];
-    [singleLocation retain];
+    _singleLocation = [_locations objectAtIndex:row];
+    [_singleLocation retain];
     
     if(_locationPoint)
     {
         [_mv removeAnnotation:_locationPoint];
         [_locationPoint release];
     }
-    _locationPoint = [[MapPoint alloc] initWithCoordinate:[[[CLLocation alloc] initWithLatitude:[[singleLocation coordinates] lat] longitude:[[singleLocation coordinates] lon]]coordinate] title: singleLocation.key subtitle:singleLocation.descriptionText];
+    _locationPoint = [[MapPoint alloc] initWithCoordinate:[[[CLLocation alloc] initWithLatitude:[[_singleLocation coordinates] lat] longitude:[[_singleLocation coordinates] lon]]coordinate] title: _singleLocation.key subtitle:_singleLocation.descriptionText];
     
     [_mv addAnnotation:_locationPoint];
     
@@ -76,7 +75,6 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    
 }
 - (void)viewDidUnload
 {
@@ -149,7 +147,7 @@
 {
     if([_delegate respondsToSelector:@selector(transferLocation:)])
     {
-        [_delegate transferLocation:singleLocation];
+        [_delegate transferLocation:_singleLocation];
     }
     [[self presentingViewController] dismissModalViewControllerAnimated:YES];
 }

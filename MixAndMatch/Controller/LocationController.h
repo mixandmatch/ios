@@ -25,8 +25,8 @@
 {
 @private
     NSMutableArray *_locations;
-    Location *singleLocation;
-    MapPoint *locationPoint;
+    Location *_singleLocation;
+    MapPoint *_locationPoint;
     MKMapView *_mapView;
 }
 
