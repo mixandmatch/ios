@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
+#import "SetUserViewController.h"
 
 @interface AppDelegate : NSObject <UIApplicationDelegate,
-RKObjectLoaderDelegate>
+MFSetUserDelegate>
+{
+    NSString *_userName;
+}
 
 + (NSDateFormatter *) GERMAN_DATE_FORMATTER;
 + (NSDateFormatter *) JSON_DATE_FORMATTER;
++ (void)showDefaultErrorAlert:(id)currentView;
 
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property(nonatomic, retain) IBOutlet UITabBarController *tabBarController;

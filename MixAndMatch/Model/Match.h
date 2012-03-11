@@ -12,7 +12,7 @@
 
 @interface Match : NSObject<BaseModel>
 
-@property (nonatomic, copy) NSString *date;
+@property (nonatomic, copy) NSDate *date;
 @property (nonatomic, copy) NSString *locationKey;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSArray *users;

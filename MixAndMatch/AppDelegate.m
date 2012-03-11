@@ -43,10 +43,18 @@
     
 }
 
++ (void)showDefaultErrorAlert:(id)currentView
+{
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Error" message:@"New event request couldn't be created!" delegate:currentView cancelButtonTitle:nil otherButtonTitles:nil] autorelease];
+    [alert addButtonWithTitle:@"Close"];
+    [alert show];
+}
+
 - (void)dealloc
 {
-    [_window release];
-    [_navigationController release];
+    [_userName release]; _userName=nil;
+    [_window release];_window=nil;
+    [_navigationController release];_navigationController=nil;
     [super dealloc];
 }
 
@@ -69,6 +77,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     [self enableTabNavigationBar];
+    // This will enlarge the time to see the launch image ;-)
+    sleep(2);
     return YES;
 }
 
@@ -153,40 +163,40 @@
     }
     
     // Setup Event Request controller with tab bar item. Disable this tab bar item.
-    EventRequestController *eventRequestController = [[EventRequestController alloc] initWithNibName:eventView bundle:nil];
-    UITabBarItem *tabBarItemEvent = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:0];
-    [eventRequestController setTabBarItem:tabBarItemEvent];
-    [tabBarItemEvent release];
+    EventRequestController *eventRequestController = [[EventRequestController alloc] initWithNibName:eventView bundle:nil masterController:self];
+    [eventRequestController setTabBarItem:[[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:1]];
 
     // Setup match controller with tab bar item. Disable this tab bar item.
-    MatchController *matchController = [[MatchController alloc] initWithNibName:matchView bundle:nil];
-    UITabBarItem *tabBarItemMatch = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:1];
-    [matchController setTabBarItem:tabBarItemMatch];
-    [tabBarItemMatch release];
+    MatchController *matchController = [[MatchController alloc] initWithNibName:matchView bundle:nil masterController:self];
+    [matchController setTabBarItem:[[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:2]];
     
     // Setup lunch controller with tab bar item. Disable this tab bar item.
-    SetupLunchViewController *setupLunchController = [[SetupLunchViewController alloc] initWithNibName:setupLunchView bundle:nil];
-    UITabBarItem *tabBarItemSetupLunch = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemMostRecent tag:2];
-    [setupLunchController setTabBarItem:tabBarItemSetupLunch];
-    [tabBarItemSetupLunch release];
+    SetupLunchViewController *setupLunchController = [[SetupLunchViewController alloc] initWithNibName:setupLunchView bundle:nil masterController:self];
+    [setupLunchController setTabBarItem:[[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemMostRecent tag:3]];
     
     // Setup user controller with tab bar item.
-    SetUserViewController *setUserViewController = [[SetUserViewController alloc] initWithNibName:setUserView bundle:nil];
-    [setUserViewController setTabBarItem:[[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemContacts tag:3]];
+    SetUserViewController *setUserViewController = [[SetUserViewController alloc] initWithNibName:setUserView bundle:nil masterController:self];
+    [setUserViewController setTabBarItem:[[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0]];
     
     NSArray *controllers = [[NSArray alloc] initWithObjects:setUserViewController, eventRequestController,matchController,setupLunchController, nil];
     
     [self.tabBarController setViewControllers:controllers];
-    [SetUserViewController release];
+    [setUserView release];
+    [eventView release];
+    [matchView release];
+    [setupLunchView release];
+    [setUserViewController release];
     [eventRequestController release];
     [matchController release];
     [setupLunchController release];
+    [controllers release];
     
     [self.window setRootViewController:_tabBarController];
     
     //Disable all controllers, despite the user login controller.
     [self enableControllers:NO];
     
+//    [self setupNotificationCenter];
     // Show the window
     [[self window] makeKeyAndVisible];
 }
@@ -200,6 +210,42 @@
         UIViewController *viewController = [controller.viewControllers objectAtIndex:i];
         [viewController.tabBarItem setEnabled:flag];
     }
+}
+
+- (void)setupNotificationCenter
+{
+    UIDevice *device=[UIDevice currentDevice];
+    
+    [device beginGeneratingDeviceOrientationNotifications];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:device];
+}
+
+- (void)orientationChanged:(NSNotification *)note
+{
+    // to change the style of presentation
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Really reset?" message:@"Do you really want to reset this game?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] autorelease];
+    // optional - add more buttons:
+    [alert addButtonWithTitle:@"Yes"];
+    [alert show];
+    NSLog(@"orientationChaned: %d", [[note object] orientation]);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# pragma mark MFSetUserDelegate
+-(void)setLoginUserName:(NSString *)userName
+{
+    if(_userName)
+    {
+        [_userName release];
+    }
+    
+    _userName=[userName copy];
+}
+-(NSString *)loginUserName
+{
+    return _userName;
 }
 
 @end
