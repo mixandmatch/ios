@@ -21,6 +21,10 @@
     
     if(self)
     {
+        if(_match)
+        {
+            [_match release];
+        }
         _match=match;
         [_match retain];
         _matchDetailContent = [[NSMutableArray alloc] init];
@@ -43,6 +47,7 @@
         [_matchDetailContent addObject:userString];
         
         [formatter release];
+        [userString release];
     }
     
     return self;
@@ -147,8 +152,7 @@
     [eventDB saveEvent:myEvent span:EKSpanThisEvent error:&err]; 
     
 	if (err == noErr) {
-        NSMutableString *_message = [[NSMutableString alloc] initWithString:@""];
-		UIAlertView *alert = [[UIAlertView alloc]
+        UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Lunch Event Created"
                               message:_eventTitle
                               delegate:nil
@@ -159,6 +163,7 @@
 	}
     
     [_eventTitle release];
+    [eventDB release];
     
 }
 

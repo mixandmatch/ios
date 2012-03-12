@@ -109,6 +109,9 @@
     [self setEntriesKP:[_kpEvents sortedArrayUsingSelector:@selector(compareDate:)]];
     [self setEntriesOthers:[_othersEvents sortedArrayUsingSelector:@selector(compareDate:)]];
     
+    [_hvuEvents release];
+    [_kpEvents release];
+    [_othersEvents release];
     
     [self.activityIndicatorView stopAnimating];
     
