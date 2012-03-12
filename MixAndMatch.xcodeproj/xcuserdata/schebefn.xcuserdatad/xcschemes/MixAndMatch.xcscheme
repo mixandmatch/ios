@@ -27,6 +27,21 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7D74595714F68D8A00AFB621"
+               BuildableName = "MixAndMatchTests.octest"
+               BlueprintName = "MixAndMatchTests"
+               ReferencedContainer = "container:MixAndMatch.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MixAndMatchTests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

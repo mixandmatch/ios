@@ -7,6 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <RestKit/RestKit.h>
 
 @interface MixAndMatchTests : SenTestCase
 

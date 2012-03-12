@@ -10,11 +10,13 @@
 
 @implementation MixAndMatchTests
 
+
+
 - (void)setUp
 {
     [super setUp];
     
-    // Set-up code here.
+    
 }
 
 - (void)tearDown
@@ -26,7 +28,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in MixAndMatchTests");
+//    STFail(@"Unit tests are not implemented yet in MixAndMatchTests");
 }
 
 @end
