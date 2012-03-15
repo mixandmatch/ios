@@ -11,8 +11,6 @@
 
 @implementation BaseLunchController
 
-@synthesize activityIndicatorView = _activityIndicatorView;
-@synthesize tableView = _tableView;
 @synthesize entriesHVU = _entriesHVU;
 @synthesize entriesKP = _entriesKP;
 @synthesize entriesOthers = _entriesOthers;
@@ -21,7 +19,9 @@
 -(void)dealloc
 {
     [self resetEvents];
-    [_masterController release]; _masterController=nil;
+    [_activityIndicatorView release];
+    [_tableView release];
+    [_masterController release];
     [super dealloc];
 }
 
@@ -95,7 +95,7 @@
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    [self.activityIndicatorView stopAnimating];
+    [_activityIndicatorView stopAnimating];
     
     NSLog(@"Error: %@", error.localizedDescription);  
     [AppDelegate showDefaultErrorAlert:self];

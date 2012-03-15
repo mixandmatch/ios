@@ -3,12 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[SetupLunchViewController tableView:didSelectRowAtIndexPath:]:SetupLunchViewController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[LocationController pickerView:titleForRow:forComponent:]:LocationController.m">
-      </ContextState>
-      <ContextState
          contextName = "-[EventRequestController objectLoader:didLoadObjects:]:EventRequestController.m">
          <PersistentStrings>
             <PersistentString
@@ -17,21 +11,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[LocationController pickerView:didSelectRow:inComponent:]:LocationController.m">
+         contextName = "-[SetupLunchViewController tableView:didSelectRowAtIndexPath:]:SetupLunchViewController.m">
       </ContextState>
       <ContextState
-         contextName = "-[DatePickerViewController viewDidLoad]:DatePickerViewController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[RootViewController setUser:]:RootViewController.m">
+         contextName = "-[MatchController initWithNibName:bundle:masterController:]:MatchController.m">
          <PersistentStrings>
             <PersistentString
-               value = "(NSString *)self-&gt;_userName">
+               value = "[_masterController loginUserName]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "main:main.m">
+         contextName = "-[SetupLunchViewController numberOfSectionsInTableView:]:SetupLunchViewController.m">
       </ContextState>
       <ContextState
          contextName = "-[LocationController objectLoader:didLoadObjects:]:LocationController.m">
@@ -42,7 +33,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AppDelegate loginUserName]:AppDelegate.m">
+         contextName = "-[DatePickerViewController initWithNibName:bundle:]:DatePickerViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[EventRequestController tableView:numberOfRowsInSection:]:EventRequestController.m">
       </ContextState>
       <ContextState
          contextName = "-[SetupLunchViewController initWithNibName:bundle:]:SetupLunchViewController.m">
@@ -53,10 +47,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[SetupLunchViewController numberOfSectionsInTableView:]:SetupLunchViewController.m">
+         contextName = "-[EventRequestRESTTests testGetAllEventRequests]:EventRequestRESTTests.m">
       </ContextState>
       <ContextState
          contextName = "-[MatchController viewDidAppear:]:MatchController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate loginUserName]:AppDelegate.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RootViewController setUser:]:RootViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "(NSString *)self-&gt;_userName">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[EventRequestController tableView:cellForRowAtIndexPath:]:EventRequestController.m">
@@ -70,24 +75,25 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[EventRequestController tableView:numberOfRowsInSection:]:EventRequestController.m">
+         contextName = "-[DatePickerViewController viewDidLoad]:DatePickerViewController.m">
       </ContextState>
       <ContextState
-         contextName = "-[DatePickerViewController initWithNibName:bundle:]:DatePickerViewController.m">
+         contextName = "main:main.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LocationController pickerView:didSelectRow:inComponent:]:LocationController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LocationController pickerView:titleForRow:forComponent:]:LocationController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BaseRESTFulTests setUp]:BaseRESTFulTests.m">
       </ContextState>
       <ContextState
          contextName = "-[LocationController updateTextField:]:LocationController.m">
          <PersistentStrings>
             <PersistentString
                value = "[locations count]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MatchController initWithNibName:bundle:masterController:]:MatchController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[_masterController loginUserName]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

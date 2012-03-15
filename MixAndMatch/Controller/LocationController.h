@@ -21,18 +21,20 @@
 
 @end
 
-@interface LocationController : UIViewController <RKObjectLoaderDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MKMapViewDelegate>
+@interface LocationController : UIViewController <RKObjectLoaderDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MKMapViewDelegate,CLLocationManagerDelegate>
 {
 @private
+    CLLocationManager *locationManager;
     NSMutableArray *_locations;
     Location *_singleLocation;
     MapPoint *_locationPoint;
-    MKMapView *_mapView;
+    
+    IBOutlet UIPickerView *_locationPicker;
+    IBOutlet MKMapView *_mapView;
+    IBOutlet UIActivityIndicatorView *_activityIndicator;
 }
 
-@property (nonatomic, assign) id<LocationControllerDelegate> delegate;
-@property (nonatomic, retain) IBOutlet UIPickerView *locationPicker;
-@property (nonatomic, retain) IBOutlet MKMapView *_mapView;
+@property (nonatomic, retain) id<LocationControllerDelegate> setupLunchDelegate;
 @property (nonatomic, retain) MapPoint *locationPoint; 
 - (IBAction)addLocation:(id)sender;
 - (IBAction)cancel:(id)sender;

@@ -18,18 +18,18 @@
 @synthesize selectedLocation=_location;
 @synthesize selectedDate=_date;
 @synthesize userName=_userName;
-@synthesize table = _table;
-@synthesize barButtonItemAdd = _barButtonItemAdd;
 
 - (void)dealloc
 {
     [_tableContentDate release];
     [_tableContentLocation release];
     [_tableSections release];
-    [_location release]; _location=nil;
-    [_date release]; _date=nil;
-    [_userName release]; _userName=nil;
-    [_masterController release]; _masterController=nil;
+    [_location release];
+    [_date release];
+    [_userName release];
+    [_table release];
+    [_barButtonItemAdd release];
+    [_masterController release];
     [super dealloc];
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil masterController:(id)delegate
@@ -157,10 +157,10 @@
     
     Class controllerClass = NSClassFromString(controllerName);
     UIViewController* viewController = [[controllerClass alloc] initWithNibName:viewNibName bundle:nil];
-    // Setup delegation
-    [viewController setDelegate:self];
     
     if (viewController) {
+        // Setup delegation
+        [viewController setSetupLunchDelegate:self];
         [self presentViewController:viewController animated:YES completion: nil];
         
         if (viewController.title == nil) {

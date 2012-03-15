@@ -17,21 +17,20 @@ typedef enum _LocationTypes{
 
 @interface BaseLunchController : UIViewController <RKObjectLoaderDelegate, UITableViewDelegate,UITableViewDataSource>
 {   
+    IBOutlet UIActivityIndicatorView* _activityIndicatorView;
+    IBOutlet UITableView *_tableView;
+    
     @private
     NSArray *_entriesHVU;
     NSArray *_entriesKP;
     NSArray *_entriesOthers;
     id<MFSetUserDelegate> _masterController;
-    UIActivityIndicatorView* _activityIndicatorView;
-    UITableView *_tableView;
 }
 
 @property(nonatomic, retain) NSArray *entriesHVU;
 @property(nonatomic, retain) NSArray *entriesKP;
 @property(nonatomic, retain) NSArray *entriesOthers;
-@property(nonatomic, retain) id<MFSetUserDelegate> masterController;
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityIndicatorView;
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property(nonatomic, assign) id<MFSetUserDelegate> masterController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil masterController:(id<MFSetUserDelegate>)delegate;
 -(void)resetEvents;

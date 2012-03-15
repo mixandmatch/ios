@@ -303,13 +303,13 @@
 		7D74595F14F68D8A00AFB621 /* MixAndMatchTests */ = {
 			isa = PBXGroup;
 			children = (
-				7D74596514F68D8A00AFB621 /* MixAndMatchTests.h */,
-				7D74596614F68D8A00AFB621 /* MixAndMatchTests.m */,
-				7D12B6CA150EA6B500353345 /* EventRequestRESTTests.h */,
-				7D12B6CB150EA6B500353345 /* EventRequestRESTTests.m */,
-				7D74596014F68D8A00AFB621 /* Supporting Files */,
 				7D12B6CD150EA85200353345 /* BaseRESTFulTests.h */,
 				7D12B6CE150EA85200353345 /* BaseRESTFulTests.m */,
+				7D12B6CA150EA6B500353345 /* EventRequestRESTTests.h */,
+				7D12B6CB150EA6B500353345 /* EventRequestRESTTests.m */,
+				7D74596514F68D8A00AFB621 /* MixAndMatchTests.h */,
+				7D74596614F68D8A00AFB621 /* MixAndMatchTests.m */,
+				7D74596014F68D8A00AFB621 /* Supporting Files */,
 			);
 			path = MixAndMatchTests;
 			sourceTree = "<group>";

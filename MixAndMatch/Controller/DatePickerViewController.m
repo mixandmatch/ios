@@ -15,12 +15,11 @@
 
 @implementation DatePickerViewController
 
-@synthesize delegate=_delegate;
-@synthesize datePicker=_datePicker;
+@synthesize setupLunchDelegate=_delegate;
 
 - (void)dealloc
 {
-    [_datePicker release]; _datePicker = nil;
+    [_datePicker release];
     [selectedDate release];
     [super dealloc];
 }

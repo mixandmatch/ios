@@ -14,14 +14,13 @@
 MFSetUserDelegate>
 {
     NSString *_userName;
+    IBOutlet UITabBarController *_tabBarController;
 }
 
 + (NSDateFormatter *) GERMAN_DATE_FORMATTER;
 + (NSDateFormatter *) JSON_DATE_FORMATTER;
 + (void)showDefaultErrorAlert:(id)currentView;
 
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-@property(nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @end

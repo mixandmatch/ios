@@ -18,16 +18,21 @@
 
 @implementation LocationController
 
-@synthesize locationPicker=_locationPicker;
-@synthesize delegate=_delegate;
+@synthesize setupLunchDelegate=_delegate;
 @synthesize locationPoint=_locationPoint;
-@synthesize _mapView=_mv;
 
 - (void)dealloc
 {
     [_singleLocation release];
     [_locations release];
-    [_locationPoint release]; _locationPoint = nil;
+    [_locationPoint release];
+    [_locationPicker release];
+    if(locationManager.delegate == self)
+    {
+        [locationManager setDelegate:nil];
+    }
+    [_mapView release];
+    [_activityIndicator release];
     [super dealloc];
 }
 
@@ -36,6 +41,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self)
     {
+        // Create location manager object
+        locationManager = [[CLLocationManager alloc] init];
+        [locationManager setDelegate:self];
+        
+        [locationManager setDistanceFilter:kCLDistanceFilterNone];
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        // Fire request for all locations
         [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/locations" objectMapping:[Location mapping] delegate:self];
         
     }
@@ -55,34 +67,20 @@
     
     if(_locationPoint)
     {
-        [_mv removeAnnotation:_locationPoint];
+        [_mapView removeAnnotation:_locationPoint];
         [_locationPoint release];
     }
-    _locationPoint = [[MapPoint alloc] initWithCoordinate:[[[CLLocation alloc] initWithLatitude:[[_singleLocation coordinates] lat] longitude:[[_singleLocation coordinates] lon]]coordinate] title: _singleLocation.key subtitle:_singleLocation.descriptionText];
+    CLLocation *currentLocation=[[CLLocation alloc] initWithLatitude:[[_singleLocation coordinates] lat] longitude:[[_singleLocation coordinates] lon]];
+    _locationPoint = [[MapPoint alloc] initWithCoordinate:[currentLocation coordinate] title: _singleLocation.key subtitle:_singleLocation.descriptionText];
+    [currentLocation release];
     
-    [_mv addAnnotation:_locationPoint];
+    [_mapView addAnnotation:_locationPoint];
     
-    [self reloadInputViews];
+    [_mapView reloadInputViews];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark UIView
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -158,13 +156,45 @@
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark MKMapViewDelegate
--(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+//-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+//{
+//    MKCoordinateRegion mapRegion;   
+//    mapRegion.center = mapView.userLocation.coordinate;
+//    mapRegion.span.latitudeDelta = 0.2;
+//    mapRegion.span.longitudeDelta = 0.2;
+//    [mapView setRegion:mapRegion animated: YES];
+//}
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)u
 {
-    MKCoordinateRegion mapRegion;   
-    mapRegion.center = mapView.userLocation.coordinate;
-    mapRegion.span.latitudeDelta = 0.2;
-    mapRegion.span.longitudeDelta = 0.2;
-    [mapView setRegion:mapRegion animated: YES];
+    CLLocationCoordinate2D loc = [u coordinate];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 5000, 5000);
+    [mapView setRegion:region animated:YES];
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# pragma mark LocationManager
+- (void)locationManager:(CLLocationManager *)manager 
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"%@", newLocation);
+    
+    // How many seconds ago was this new location created?
+    NSTimeInterval t = [[newLocation timestamp] timeIntervalSinceNow];
+    
+    // CLLocationManagers will return the last found location of the
+    // device first, you don't want that data in this case.
+    // If this location was made more than 3 minutes ago, ignore it.
+    if (t < -180) {
+        // This is cached data, you don't want it, keep looking
+        return;
+    }
+//    [self foundLocation:newLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager 
+       didFailWithError:(NSError *)error
+{
+    NSLog(@"Could not find location: %@", error);
 }
 
 @end

@@ -17,12 +17,11 @@
 @end
 
 @interface DatePickerViewController : UIViewController<UIPickerViewDelegate>{
-    UIDatePicker *datePicker;
+    IBOutlet UIDatePicker *_datePicker;
     NSDate *selectedDate;
 }
 
-@property (nonatomic, retain) id<DateControllerDelegate> delegate;
-@property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, retain) id<DateControllerDelegate> setupLunchDelegate;
 - (IBAction)addDate:(id)sender;
 - (IBAction)cancel:(id)sender;
 @end

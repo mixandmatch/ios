@@ -20,9 +20,7 @@
 
 @implementation AppDelegate
 
-@synthesize navigationController = _navigationController;
 @synthesize window = _window;
-@synthesize tabBarController=_tabBarController;
 
 + (NSDateFormatter *) JSON_DATE_FORMATTER
 {
@@ -52,9 +50,8 @@
 
 - (void)dealloc
 {
-    [_userName release]; _userName=nil;
-    [_window release];_window=nil;
-    [_navigationController release];_navigationController=nil;
+    [_userName release];
+    [_window release];
     [super dealloc];
 }
 
@@ -73,7 +70,6 @@
     [self setupObjectMapping];
     [self setupResourcePathes];
     // Override point for customization after application launch.
-//    self.window.rootViewController = self.navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     [self enableTabNavigationBar];
@@ -133,7 +129,7 @@
 
 - (void)enableTabNavigationBar
 {
-    self.tabBarController = [[UITabBarController alloc] init];
+    _tabBarController = [[UITabBarController alloc] init];
     
     NSString *eventView;
     NSString *matchView;
@@ -171,7 +167,7 @@
     
     NSArray *controllers = [[NSArray alloc] initWithObjects:setUserViewController, eventRequestController,matchController,setupLunchController, nil];
     
-    [self.tabBarController setViewControllers:controllers];
+    [_tabBarController setViewControllers:controllers];
     [setUserView release];
     [eventView release];
     [matchView release];
@@ -194,7 +190,7 @@
 
 - (void)enableControllers:(BOOL)flag
 {
-    UITabBarController *controller = (UITabBarController *)[self tabBarController];
+    UITabBarController *controller = (UITabBarController *)_tabBarController;
     // Disable all other tabs
     for(int i = 1; i<4; i++)
     {

@@ -7,7 +7,14 @@
 //
 
 #import "BaseRESTFulTests.h"
+#import "EventRequest.h"
 
 @interface EventRequestRESTTests : BaseRESTFulTests
-
+{
+    BOOL done;
+    BOOL runTest;
+    EventRequest *requestForTestUser;
+    NSDate *currentDate;
+    double thinkTime;
+}
 @end

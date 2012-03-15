@@ -8,25 +8,77 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MixAndMatchTests/EventRequestRESTTests.m"
-         timestampString = "353283759.304718"
+         timestampString = "353403066.605446"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "29"
-         endingLineNumber = "29"
-         landmarkName = "-testGetAllEventRequests"
+         startingLineNumber = "68"
+         endingLineNumber = "68"
+         landmarkName = "-testCreateEventRequest"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "MixAndMatchTests/BaseRESTFulTests.m"
-         timestampString = "353283471.846517"
+         filePath = "MixAndMatch/Controller/LocationController.m"
+         timestampString = "353489592.299472"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40"
-         landmarkName = "-setUp"
+         startingLineNumber = "146"
+         endingLineNumber = "146"
+         landmarkName = "-addLocation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MixAndMatch/Controller/SetupLunchViewController.m"
+         timestampString = "353449591.569303"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "203"
+         endingLineNumber = "203"
+         landmarkName = "-transferLocation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MixAndMatch/Controller/SetupLunchViewController.m"
+         timestampString = "353449595.719529"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "210"
+         endingLineNumber = "210"
+         landmarkName = "-transferDate:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MixAndMatch/Controller/LocationController.m"
+         timestampString = "353489592.299472"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
+         landmarkName = "-initWithNibName:bundle:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MixAndMatch/Controller/SetupLunchViewController.m"
+         timestampString = "353452317.660092"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

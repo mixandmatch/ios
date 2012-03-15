@@ -32,6 +32,18 @@
     
 }
 
+- (void)setupRouter:(RKObjectRouter *)router
+{
+    [router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date/lunch/:userId" forMethod:RKRequestMethodDELETE];
+    [router routeClass: [EventRequest class] toResourcePath:@"/requests" forMethod:RKRequestMethodPOST]; // Params: &locationKey=&userid=&date=
+    [router routeClass: [EventRequest class] toResourcePath:@"/users/:userId" forMethod:RKRequestMethodGET];
+    
+    [router routeClass:[Match class] toResourcePath:@"/users/:userId/matches" forMethod:RKRequestMethodGET];
+    
+    [RKObjectManager sharedManager].router = router;
+    [router release];
+}
+
 -(void)setUp
 {
     [super setUp];
@@ -49,14 +61,7 @@
     // Setup rout pathes
     RKObjectRouter *router = [RKObjectRouter new];
     
-    [router routeClass: [EventRequest class] toResourcePath:@"/requests/:locationKey/:date/lunch/:userId" forMethod:RKRequestMethodDELETE];
-    [router routeClass: [EventRequest class] toResourcePath:@"/requests" forMethod:RKRequestMethodPOST]; // Params: &locationKey=&userid=&date=
-    [router routeClass: [EventRequest class] toResourcePath:@"/users/:userId" forMethod:RKRequestMethodGET];
-    
-    [router routeClass:[Match class] toResourcePath:@"/users/:userId/matches" forMethod:RKRequestMethodGET];
-    
-    [RKObjectManager sharedManager].router = router;
-    [router release];
+    [self setupRouter:router];
 }
 
 -(void)tearDown

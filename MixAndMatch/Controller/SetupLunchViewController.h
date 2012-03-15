@@ -17,17 +17,15 @@
     NSArray *_tableSections;
     NSArray *_tableContentDate;
     NSArray *_tableContentLocation;
-    UITableView *_table;
-    UIBarButtonItem *_barButtonItemAdd;
+    IBOutlet UITableView *_table;
+    IBOutlet UIBarButtonItem *_barButtonItemAdd;
     id<MFSetUserDelegate> _masterController;
 }
 @property (nonatomic,retain) Location *selectedLocation;
 @property (nonatomic, retain) NSDate *selectedDate;
 @property (nonatomic, copy) NSString *userName;
-@property (nonatomic, retain) IBOutlet UITableView *table;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *barButtonItemAdd;
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil masterController:(id)delegate;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil masterController:(id<MFSetUserDelegate>)delegate;
 @end

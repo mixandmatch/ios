@@ -25,7 +25,7 @@
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:requestPath objectMapping:[EventRequest mapping] delegate:self];
     [requestPath release];
     
-    [self.activityIndicatorView startAnimating];
+    [_activityIndicatorView startAnimating];
     
 }
 
@@ -113,9 +113,9 @@
     [_kpEvents release];
     [_othersEvents release];
     
-    [self.activityIndicatorView stopAnimating];
+    [_activityIndicatorView stopAnimating];
     
-    [self.tableView reloadData];
+    [_tableView reloadData];
 }
 
 @end
